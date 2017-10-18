@@ -1,0 +1,11 @@
+    $font-stack: 'Poppins',
+    sans-serif;
+    $primary-color: #00ffe7;
+    $secondary-color: #200f23;
+    $tertiary-color: #18263a;
+    * {
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        font: 100% $font-stack;
+    }
