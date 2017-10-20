@@ -9,7 +9,7 @@
 <script>
 import Menutop from './Menutop.vue'
 import Logo from './Logo.vue'
-import Actionbutton from './ActionButton.vue'
+import Actionbutton from './Actionbutton.vue'
 
 export default {
   data () {

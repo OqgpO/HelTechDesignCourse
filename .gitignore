@@ -53,7 +53,7 @@ coverage.xml
 # Django stuff:
 *.log
 .static_storage/
-.media_devy/
+.server/media_dev/
 local_settings.py
 
 # Flask stuff:
@@ -102,3 +102,14 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# emacs temps
+.*~
+
+
+# vue-cli ignores
+.DS_Store
+client/node_modules
+client/test/e2e/mock-template-build
+client/*.log
+client/dist/

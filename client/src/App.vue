@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-  <topblock></topblock>
-  <intro></intro>
+  <topblock>r</topblock>
+  <intro>foobar</intro>
   <events></events>
   <speakers></speakers>
   <partners></partners>

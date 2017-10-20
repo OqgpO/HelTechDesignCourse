@@ -4,7 +4,7 @@
 
 <script>
 import Currentevent from './Currentevent.vue'
-import Smallevent from './Smallevent.vue'
+import Smallevent from './SmallEvent.vue'
 
 export default {
   data () {
