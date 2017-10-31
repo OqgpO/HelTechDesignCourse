@@ -1,5 +1,0 @@
-django
-Pillow		#for imagefield
-djangorestframework # for REST API
-markdown       # Markdown support for the browsable API.
-django-filter  # Filtering support

@@ -25,7 +25,7 @@ SECRET_KEY = 'vucg606v(tqfxkh%)diriab*xs)n)adn3wf5hn!f$i!lapyq5m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['130.233.96.179']
+ALLOWED_HOSTS = ['shapemeal.cs.hut.fi']
 
 
 # Application definition
@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'heltech.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'heltech',
+        'USER': 'heltech_devel',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': ''
     }
 }
 
