@@ -30,7 +30,7 @@ module.exports = {
                 exclude: /node_modules/
       },
             {
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
                 loader: 'file-loader',
                 options: {
                     name: '[name].[ext]?[hash]'
@@ -55,7 +55,7 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
     module.exports.devtool = '#source-map'
-        // http://vue-loader.vuejs.org/en/workflow/production.html
+    // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
             'process.env': {
