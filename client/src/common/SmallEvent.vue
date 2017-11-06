@@ -23,10 +23,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 
 </script>
 
-<style lang="scss">
 
-
-</style>
 
 <custom1>
     This could be e.g. documentation for the component.
