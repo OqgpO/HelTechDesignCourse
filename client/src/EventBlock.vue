@@ -29,7 +29,6 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 </template>
 
 <script>
-    //import Currentevent from './Currentevent.vue'
     import SmallEvent from './common/SmallEvent.vue'
 
     export default {
