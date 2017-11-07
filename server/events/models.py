@@ -11,6 +11,15 @@ class Event(models.Model):
     speaker = models.ForeignKey(Speaker, null=True)
 
 class EventWorker(models.Model):
-    page_token = models.CharField(max_length=200)
-    update_freq = models.BigIntegerField()
+    user_token = models.CharField(max_length=400, blank=True)
+    page_token = models.CharField(max_length=400, blank=True)
     name = models.CharField(max_length=200)
+    page_name = models.CharField(max_length=200)
+    page_id = models.CharField(max_length=200)
+    
+class FBApplication(models.Model):
+    name = models.CharField(max_length=400)
+    app_id = models.CharField(max_length=400)
+    app_secret = models.CharField(max_length=400)
+
+    

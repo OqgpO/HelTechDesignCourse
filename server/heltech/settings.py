@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+#import the fb app settings
+#from fb import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +28,7 @@ SECRET_KEY = 'vucg606v(tqfxkh%)diriab*xs)n)adn3wf5hn!f$i!lapyq5m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shapemeal.cs.hut.fi']
+ALLOWED_HOSTS = ['shapemeal.cs.hut.fi', 'localhost', '127.0.0.1', '130.233.96.67']
 
 
 # Application definition
@@ -38,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cron',
+#    'django_facebook',
     'rest_framework',
     'events',
     'contacts',
@@ -54,6 +59,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CRON_CLASSES = ['events.tasks.FB']
+
+
 ROOT_URLCONF = 'heltech.urls'
 
 TEMPLATES = [
@@ -67,10 +75,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
+#            	'django_facebook.context_processors.facebook',
+	    ],
         },
     },
 ]
+
+#TEMPLATE_CONTEXT_PROCESSORS = TEMPLATES[0]['OPTIONS']['context_processors']
 
 WSGI_APPLICATION = 'heltech.wsgi.application'
 
@@ -83,15 +94,24 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'heltech',
         'USER': 'heltech_devel',
-        'PASSWORD': '',
-        'HOST': '',
+        'PASSWORD': 'heltech',
+        'HOST': 'localhost',
         'PORT': ''
     }
 }
 
 
+#AUTHENTICATION_BACKENDS = (
+#    'django_facebook.auth_backends.FacebookBackend',
+#    'django.contrib.auth.backends.ModelBackend',
+#)
+
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
+
+#AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+#AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -137,4 +157,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
 
