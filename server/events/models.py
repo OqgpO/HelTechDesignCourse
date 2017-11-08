@@ -12,10 +12,13 @@ class Event(models.Model):
 
 class EventWorker(models.Model):
     user_token = models.CharField(max_length=400, blank=True)
+    user_ll_token =  models.CharField(max_length=400, blank=True)
+    ll_expires = models.CharField(max_length=400, blank=True)
     page_token = models.CharField(max_length=400, blank=True)
     name = models.CharField(max_length=200)
     page_name = models.CharField(max_length=200)
     page_id = models.CharField(max_length=200)
+
     
 class FBApplication(models.Model):
     name = models.CharField(max_length=400)

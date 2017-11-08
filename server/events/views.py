@@ -50,37 +50,30 @@ def elevate_page_token(request):
         else:
             return render(request, 'page_auth_form.html', {'form':form})
 
+
+        ew = EventWorker(name='Heltech' + str(time.time()), user_token=user_token, page_name="heltech")
         
         #get the long-lived token
         https = urllib3.PoolManager(cert_reqs=str('CERT_REQUIRED'), ca_certs=certifi.where())
-        params = "grant_type=fb_exchenge_token&client_id=" + app.app_id
+        params = "grant_type=fb_exchange_token&client_id=" + app.app_id
         params += "&client_secret=" + app.app_secret
         params += "&fb_exchange_token=" + user_token
-        resp = https.request('GET', "https://graph.facebook.com/oauth/access_token?"+params)
-        
+        params += "&redirect_uri=https://shapemeal.cs.hut.fi/heltech/events/elevate_token/" + ew.name
+
+        resp = https.request('GET', "https://graph.facebook.com/oauth/access_token?"+params)        
         logger.info( "params: " + params )
         logger.info( "status: " + str(resp.status))
-        logger.info( "response" + resp.data )
+        logger.info( "response: " + resp.data )
         
-        
-        
-        #construct the call for elevation
-        resp = https.request('GET', "https://graph.facebook.com/me/accounts?access_token="+user_token)
-        #graph = facebook.GraphAPI(access_token=ew.user_token, version="2.10")
-
-        #events = graph.search(type='event')
-
-        ew = EventWorker(name='Heltech' + str(time.time()), user_token=user_token, page_name="heltech")
+        respDict = ast.literal_eval(resp.data)
+        ew.user_ll_token = respDict['access_token']
+        ew.ll_expires = str(respDict['expires_in'])
         ew.save()
-
-        thedict = ast.literal_eval(resp.data)
         
-        return render(request, "select_page.html", context={'data':thedict['data'],'name':ew.name})
-
-    return HttpResponse("Not a post!! should not get here")
+        return HttpResponse("Oauth should redirect...")
 
 @login_required
-def select_page(request):
+def select_page(request, wname):
     logger.info('select_page')
     if request.method == 'POST':
         page_id = request.POST['pageid']
@@ -104,5 +97,14 @@ def select_page(request):
             return HttpResponse("Got empty list..")
             
     else:
-        return HttpResponse("Not a post!! should not get here")
+        #get pages list
+        if wname and wname != "":
+            ew = EventWorker.objects.get(name=wname)
+            https = urllib3.PoolManager(cert_reqs=str('CERT_REQUIRED'), ca_certs=certifi.where())
+            resp = https.request('GET', "https://graph.facebook.com/me/accounts?access_token="+ew.user_ll_token)
+
+
+            thedict = ast.literal_eval(resp.data)
+        
+            return render(request, "select_page.html", context={'data':thedict['data'],'name':ew.name})
         
