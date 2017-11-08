@@ -42,6 +42,8 @@ def authorize_page(request):
 def elevate_page_token(request):
     logger.info('elevate_page_token')
     if request.method == 'POST':
+        app = FBApplication.objects.all()[0] # only one for now..
+
         form = TokenForm(request.POST)
         if form.is_valid():
             user_token = form.cleaned_data['user_token']
@@ -49,11 +51,23 @@ def elevate_page_token(request):
             return render(request, 'page_auth_form.html', {'form':form})
 
         
-        #construct the call for elevation
+        #get the long-lived token
         https = urllib3.PoolManager(cert_reqs=str('CERT_REQUIRED'), ca_certs=certifi.where())
+        params = "grant_type=fb_exchenge_token&client_id=".append(app.app_id)
+        params.append("&client_secret=")
+        params.append(app.app_secret)
+        params.append("&fb_exchange_token=")
+        params.append(user_token)
+        resp = https.request('GET', "https://graph.facebook.com/oauth/access_token?"+params)
+        
+        logger.info( "params: " + params )
+        logger.info( "status: " + resp.status)
+        logger.info( "response" + resp.data )
+        
+        
+        
+        #construct the call for elevation
         resp = https.request('GET', "https://graph.facebook.com/me/accounts?access_token="+user_token)
-        print(resp.status)
-        print(resp.data) 
         #graph = facebook.GraphAPI(access_token=ew.user_token, version="2.10")
 
         #events = graph.search(type='event')
