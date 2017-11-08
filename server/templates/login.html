@@ -11,7 +11,7 @@
      document.getElementById("theForm").innerHTML = this.responseText;
   }
   };
-  xhttp.open("GET", "/events/auth_page_token", true);
+  xhttp.open("GET", "{% url 'authorize_page' %}", true);
   xhttp.send();
 };
   </script>
