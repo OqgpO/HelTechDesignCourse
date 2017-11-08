@@ -6,6 +6,7 @@ from events.forms import TokenForm
 from events.models import EventWorker, FBApplication
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+import logging
 
 import urllib3.contrib.pyopenssl
 import certifi, ssl
@@ -14,11 +15,15 @@ import time, ast
 
 urllib3.contrib.pyopenssl.inject_into_urllib3()
 
+
+logger = logging.getLogger(__name__)
+
 @login_required
 def index(request):
     return HttpResponse("Maintenance section of the heltech site")
 
 def login(request):
+    logger.info('login')
     # get the app info
     app = FBApplication.objects.all()[0] # only one for now..
     
@@ -29,11 +34,13 @@ def login(request):
 
 @login_required
 def authorize_page(request):
+    logger.info('authorize_page')
     form = TokenForm()
     return render(request, 'page_auth_form.html', {'form':form})
 
 @login_required
 def elevate_page_token(request):
+    logger.info('elevate_page_token')
     if request.method == 'POST':
         form = TokenForm(request.POST)
         if form.is_valid():
@@ -51,24 +58,6 @@ def elevate_page_token(request):
 
         #events = graph.search(type='event')
 
-        test_data = {
-  "data": [
-    {
-      "category": "Product/service",
-      "name": "Sample Page",
-      "access_token": "{page-access-token}",
-      "id": "1234567890",
-      "perms": [
-        "ADMINISTER",
-        "EDIT_PROFILE",
-        "CREATE_CONTENT",
-        "MODERATE_CONTENT",
-        "CREATE_ADS",
-        "BASIC_ADMIN"
-      ]
-    },
-      ]
-}
         ew = EventWorker(name='Heltech' + str(time.time()), user_token=user_token, page_name="heltech")
         ew.save()
 
@@ -80,6 +69,7 @@ def elevate_page_token(request):
 
 @login_required
 def select_page(request):
+    logger.info('select_page')
     if request.method == 'POST':
         page_id = request.POST['pageid']
         wname = request.POST['pagename']
