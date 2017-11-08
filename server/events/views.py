@@ -59,7 +59,7 @@ def elevate_page_token(request):
         resp = https.request('GET', "https://graph.facebook.com/oauth/access_token?"+params)
         
         logger.info( "params: " + params )
-        logger.info( "status: " + resp.status)
+        logger.info( "status: " + str(resp.status))
         logger.info( "response" + resp.data )
         
         
