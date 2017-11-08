@@ -53,11 +53,9 @@ def elevate_page_token(request):
         
         #get the long-lived token
         https = urllib3.PoolManager(cert_reqs=str('CERT_REQUIRED'), ca_certs=certifi.where())
-        params = "grant_type=fb_exchenge_token&client_id=".append(app.app_id)
-        params.append("&client_secret=")
-        params.append(app.app_secret)
-        params.append("&fb_exchange_token=")
-        params.append(user_token)
+        params = "grant_type=fb_exchenge_token&client_id=" + app.app_id
+        params += "&client_secret=" + app.app_secret
+        params += "&fb_exchange_token=" + user_token
         resp = https.request('GET', "https://graph.facebook.com/oauth/access_token?"+params)
         
         logger.info( "params: " + params )
