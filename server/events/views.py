@@ -81,7 +81,7 @@ def select_page(request, wname):
             ew = EventWorker.objects.get(name=wname)
             ew.page_id = page_id
             https = urllib3.PoolManager(cert_reqs=str('CERT_REQUIRED'), ca_certs=certifi.where())
-            resp = https.request('GET', "https://graph.facebook.com/me/accounts?access_token="+ew.user_token)
+            resp = https.request('GET', "https://graph.facebook.com/me/accounts?access_token="+ew.user_ll_token)
             print resp.data
             thedict = ast.literal_eval(resp.data)
             print thedict
