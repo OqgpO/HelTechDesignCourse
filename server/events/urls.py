@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^login$', views.login, name='login'),
     url(r'^auth_page_token$', views.authorize_page, name='authorize_page'),
-    url(r'^elevate_token/()$', views.elevate_page_token, name='elevate_page_token'),
-    url(r'^select$', views.select_page, name='select_page'),
+    url(r'^elevate_token$', views.elevate_page_token, name='elevate_page_token'),
+    url(r'^select/()$', views.select_page, name='select_page'),
 ]

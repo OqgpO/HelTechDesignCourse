@@ -58,7 +58,7 @@ def elevate_page_token(request):
         params = "grant_type=fb_exchange_token&client_id=" + app.app_id
         params += "&client_secret=" + app.app_secret
         params += "&fb_exchange_token=" + user_token
-        params += "&redirect_uri=https://shapemeal.cs.hut.fi/heltech/events/elevate_token/" + ew.name
+        params += "&redirect_uri=https://shapemeal.cs.hut.fi/heltech/events/select/" + ew.name
 
         resp = https.request('GET', "https://graph.facebook.com/oauth/access_token?"+params)        
         logger.info( "params: " + params )

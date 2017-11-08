@@ -2,7 +2,7 @@
   <head>
   </head>
   <body>
-    <form action="{% url 'select_page' %}" method="post">
+    <form action="{% url 'select_page' name %}" method="post">
       <input type="hidden" name="pagename" value={{name}}>
       {% csrf_token %}
       <table>
