@@ -9,7 +9,7 @@ class EventAdmin(admin.ModelAdmin):
     list_display = ('title', 'date_organised')
 
 class EventWorkerAdmin(admin.ModelAdmin):
-    fields = ['name','page_name', 'page_id', 'page_token','user_token']
+    #fields = ['name','page_name', 'page_id', 'page_token','user_token', 'user_ll_token',']
     list_display = ('name', 'page_name')
     
 

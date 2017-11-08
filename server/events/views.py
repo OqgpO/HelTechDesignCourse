@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from events.forms import TokenForm
 from events.models import EventWorker, FBApplication
 from django.contrib.auth.decorators import login_required
@@ -69,15 +69,14 @@ def elevate_page_token(request):
         ew.user_ll_token = respDict['access_token']
         ew.ll_expires = str(respDict['expires_in'])
         ew.save()
-        
-        return HttpResponse("Oauth should redirect...")
+
+        return redirect('select_page', ew.name)
 
 @login_required
 def select_page(request, wname):
     logger.info('select_page')
     if request.method == 'POST':
         page_id = request.POST['pageid']
-        wname = request.POST['pagename']
         if page_id and wname:
             ew = EventWorker.objects.get(name=wname)
             ew.page_id = page_id
