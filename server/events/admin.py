@@ -5,7 +5,7 @@ from django.contrib import admin
 from .models import Event, EventWorker, FBApplication
 
 class EventAdmin(admin.ModelAdmin):
-    fields = ['title', 'date_organised', 'description', 'speaker']
+    #fields = ['title', 'date_organised', 'description', 'speaker']
     list_display = ('title', 'start_time')
 
 class EventWorkerAdmin(admin.ModelAdmin):
