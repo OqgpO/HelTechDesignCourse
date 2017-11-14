@@ -9,7 +9,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import datetime
 from django.utils import timezone
-from django.core.Exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist
 
 from django.shortcuts import render
 
@@ -77,11 +77,14 @@ def currentEvent(request):
     if request.method=='GET':
         try:
             now = timezone.now()
-            event = Event.objects.filter(start_time__gte=now).order_by('+start_time')[0]
-        except IndexError:
-            event = Event.objects.filter(start_time__lte=now).order_by('-start_time')[0]
+            event = Event.objects.filter(start_time__gte=now).order_by('+start_time')
+            if not event:
+                event = Event.objects.filter(start_time__lte=now).order_by('-start_time')
+                if not event:
+                    return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = EventSerializer(events, many=False)
+
+        serializer = EventSerializer(event[0], many=False)
         return Response(serializer.data)
 
     return Response(status=status.HTTP_404_NOT_FOUND)
