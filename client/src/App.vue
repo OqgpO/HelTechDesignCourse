@@ -6,6 +6,8 @@
 <div id="content">
 <Intro></Intro>
 <EventBlock></EventBlock>
+<SpeakersPartnersBlock></SpeakersPartnersBlock>
+<BottomRegion></BottomRegion>
 </div>
 </div>
 </div>
@@ -17,8 +19,8 @@
     import TopRegion from './TopRegion.vue'
     import Intro from './Intro.vue'
     import EventBlock from './EventBlock.vue'
-    //import Speakers from './contacts/Speakers.vue'
-    //import Partners from './contacts/Partners.vue'
+    import SpeakersPartnersBlock from './SpeakersPartnersBlock.vue'
+    import BottomRegion from './BottomRegion.vue'
 
     export default {
         name: 'app',
@@ -31,8 +33,8 @@
             TopRegion,
             Intro,
             EventBlock,
-            //Speakers,
-            //Partners
+            SpeakersPartnersBlock,
+            BottomRegion,
         }
     }
 
