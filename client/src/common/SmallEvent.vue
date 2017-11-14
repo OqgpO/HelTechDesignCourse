@@ -6,7 +6,7 @@
 <div class="events-title">
 <h2><a href="event.html">{{event.title}}</a></h2>
 </div>
-<p>{{event.description}}</p>
+<p>{{event.description | truncate(200, '...')}}</p>
 </div>
 
 </template>
