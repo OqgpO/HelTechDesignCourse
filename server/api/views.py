@@ -50,7 +50,6 @@ def pastEvents(request, limit=None):
     
     return Response(status=status.HTTP_404_NOT_FOUND)
 
-@csrf_exempt
 @api_view(['GET'])
 def futureEvents(request, limit=None):
     if request.method=='GET':
@@ -71,7 +70,6 @@ def futureEvents(request, limit=None):
     return Response(status=status.HTTP_404_NOT_FOUND)
 
 
-@csrf_exempt
 @api_view(['GET'])
 def currentEvent(request):
     if request.method=='GET':
@@ -85,5 +83,5 @@ def currentEvent(request):
 
         serializer = EventSerializer(event[0], many=False)
         return Response(serializer.data)
-
+    
     return Response(status=status.HTTP_404_NOT_FOUND)
