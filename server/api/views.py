@@ -44,7 +44,7 @@ def pastEvents(request, limit=None):
                 return Response(status=status.HTTP_404_NOT_FOUND)
 
         
-        serializer = EventSerializer(events, many=events.len()!=1)
+        serializer = EventSerializer(events, many=events.len()!=1, context={'request':request})
         return Response(serializer.data)
     
     return Response(status=status.HTTP_404_NOT_FOUND)
@@ -64,7 +64,7 @@ def futureEvents(request, limit=None):
                 return Response(status=status.HTTP_404_NOT_FOUND)
 
         
-        serializer = EventSerializer(events, many=events.len()!=1)
+        serializer = EventSerializer(events, many=events.len()!=1, context={'request':request})
         return Response(serializer.data)
     
     return Response(status=status.HTTP_404_NOT_FOUND)
@@ -82,7 +82,7 @@ def currentEvent(request):
                 return Response(status=status.HTTP_404_NOT_FOUND)
 
 
-        serializer = EventSerializer(event[0], many=False)
+        serializer = EventSerializer(event[0], many=False, context={'request':request})
         return Response(serializer.data)
     
     return Response(status=status.HTTP_404_NOT_FOUND)
