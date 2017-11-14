@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from events.forms import TokenForm
 from events.models import EventWorker, FBApplication
+from events.parsers import EventParser
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 import logging

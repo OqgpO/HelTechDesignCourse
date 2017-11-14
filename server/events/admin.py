@@ -6,7 +6,7 @@ from .models import Event, EventWorker, FBApplication
 
 class EventAdmin(admin.ModelAdmin):
     fields = ['title', 'date_organised', 'description', 'speaker']
-    list_display = ('title', 'date_organised')
+    list_display = ('title', 'start_time')
 
 class EventWorkerAdmin(admin.ModelAdmin):
     #fields = ['name','page_name', 'page_id', 'page_token','user_token', 'user_ll_token',']

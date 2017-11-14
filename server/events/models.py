@@ -6,10 +6,13 @@ from contacts.models import Speaker
 
 class Event(models.Model):
     title = models.CharField(max_length=1000)
-    date_organised = models.DateTimeField('date organised')
+    start_time = models.DateTimeField('date organised')
+    end_time = models.DateTimeField('date organised')
+    eid = models.CharField(max_length=400)
     description = models.TextField(max_length=2000)
     speaker = models.ForeignKey(Speaker, null=True)
-
+    programme = models.TextField(max_length=2000)
+    
 class EventWorker(models.Model):
     user_token = models.CharField(max_length=400, blank=True)
     user_ll_token =  models.CharField(max_length=400, blank=True)
