@@ -19,10 +19,7 @@ And these conceptions, they can change.</p>
 </div>
 
 <div class="other-event events-block-2">
-
-<SmallEvent class="event-1"></SmallEvent>
-<SmallEvent class="event-2"></SmallEvent>
-
+<SmallEvent class="event-1" v-for="event in events" :key="event.id" v-bind:event="event"></SmallEvent>
 </div>
 </div>
 </div>
@@ -34,7 +31,7 @@ And these conceptions, they can change.</p>
     export default {
         data() {
             return {
-            other: this.events,
+            events: this.events,
                 current: ""
             }
         },
