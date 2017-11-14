@@ -8,7 +8,7 @@ from . import views
 class EventSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Event
-        fields = ('url', 'title', 'date_organised', 'description', 'speaker')
+        fields = ('url', 'title', 'start_time', 'end_time', 'eid', 'programme', 'description', 'speaker')
 
 class SpeakerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

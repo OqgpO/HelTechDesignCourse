@@ -3,6 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 from events.models import EventWorker, Event
 from contacts.models import Speaker, Organisation
+from events.parsers import EventParser
 
 
 import facebook
@@ -35,11 +36,10 @@ class FB(CronJobBase):
         #get the page events
         
         fb_events = graph.get_connections(id=ew.page_id, connection_name="events")
-        logger.debug("All events fetched, result:", str(fb_events))
+        logger.debug("All events fetched, result:\n" + str(fb_events))
         
         db_events = Event.objects.all()
 
-        # any new events?
         for event in fb_events['data']:
             try:
                 e = Event.objects.get(eid=str(event['id']))
@@ -62,3 +62,13 @@ class FB(CronJobBase):
           
                 e.save()
 
+            # fetch the cover photo
+            cover = graph.get_object(id=e.eid, fields=['cover'])
+
+            try:
+                e.cover_uri = cover['cover']['source']
+            except KeyError:
+                e.cover_uri = ""
+
+            e.save()
+            
