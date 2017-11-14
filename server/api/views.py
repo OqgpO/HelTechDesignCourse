@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from events.models import Event
 from contacts.models import Speaker, Organisation
+from api.serializers import *
 from rest_framework import viewsets
 
 
