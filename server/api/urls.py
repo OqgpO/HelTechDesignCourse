@@ -13,4 +13,8 @@ router.register(r'partners', PartnerViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
+    url(r'^events/past/(?P<limit>[0-9]+)$', views.pastEvents ),
+    url(r'^events/future/(?P<limit>[0-9]+)$', views.futureEvents ),
+    url(r'^events/current$', views.currentEvent ),
+
 ]
