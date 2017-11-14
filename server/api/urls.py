@@ -2,7 +2,7 @@ from django.conf.urls import url, include
 from events.models import Event
 from contacts.models import Speaker, Organisation
 from rest_framework import routers
-from api import views
+from api.views import *
 
 
 router = routers.DefaultRouter()
