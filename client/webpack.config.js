@@ -1,5 +1,10 @@
 var path = require('path')
 var webpack = require('webpack')
+//var Vue = require('vue');
+var VueResource = require('vue-resource');
+
+//Vue.use(VueResource);
+
 
 module.exports = {
     entry: './src/main.js',

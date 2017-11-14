@@ -1,12 +1,11 @@
 <template>
   <div id="desc-block" class="landing">
 <div class="desc-block image-wrapper">
-<img src="./img/main-about-background.jpg" alt="About HelTech"></div>
+<img src="./img/main-about-background.jpg" alt="About HelTech">
+</div>
 <div class="desc-block wrapper">
-<h1>Question everything</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<h1>{{titlepre}}<br/>{{titlepost}}</h1>
+<p>{{introtext}}</p>
 </div>
 </div>
 </template>
@@ -15,7 +14,9 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
     export default {
         data() {
             return {
-                msg: 'Intro'
+                titlepre: "Helsinki's",
+                titlepost: "tech meetup",
+                introtext: "Every first Monday night of each month we gather the Finnish tech scene, with foreign visitors in the centre of Helsinki.\n The purpose of the event is to educate, inspire and finally to connect tech enthusiasts, by discussing the latest trends in technology with the help of interesting participants and company representatives."
             }
         }
     }
