@@ -60,15 +60,14 @@ class FB(CronJobBase):
                            programme=ep.programme,
                            description=ep.description )
           
-                e.save()
+                # fetch the cover photo
+                cover = graph.get_object(id=e.eid, fields=['cover'])
+                
+                try:
+                    e.cover_uri = cover['cover']['source']
+                except KeyError:
+                    e.cover_uri = ""
+                    e.save()
 
-            # fetch the cover photo
-            cover = graph.get_object(id=e.eid, fields=['cover'])
 
-            try:
-                e.cover_uri = cover['cover']['source']
-            except KeyError:
-                e.cover_uri = ""
-
-            e.save()
             
