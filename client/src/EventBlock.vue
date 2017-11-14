@@ -42,8 +42,7 @@ And these conceptions, they can change.</p>
         created: function () {
     // `this` points to the vm instance
         this.$http.get('/heltech/api/events').then(function(response) {
-            alert("foof");
-            console.log("response" + response.data);
+            console.log(response.data);
             this.events = response.data;
         });
     console.log('a is: ' + this.events)
