@@ -75,13 +75,12 @@ def futureEvents(request, limit=None):
 @api_view(['GET'])
 def currentEvent(request):
     if request.method=='GET':
-        try:
-            now = timezone.now()
-            event = Event.objects.filter(start_time__gte=now).order_by('+start_time')
+        now = timezone.now()
+        event = Event.objects.filter(start_time__gte=now).order_by('+start_time')
+        if not event:
+            event = Event.objects.filter(start_time__lte=now).order_by('-start_time')
             if not event:
-                event = Event.objects.filter(start_time__lte=now).order_by('-start_time')
-                if not event:
-                    return Response(status=status.HTTP_404_NOT_FOUND)
+                return Response(status=status.HTTP_404_NOT_FOUND)
 
 
         serializer = EventSerializer(event[0], many=False)
