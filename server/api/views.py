@@ -34,12 +34,12 @@ class PartnerViewSet(viewsets.ModelViewSet):
 def pastEvents(request, limit=None):
     if request.method=='GET':
         if limit == None:
-            events = event.objects.filter(start_time__lt=timezone.now()).order_by('-start_time')
+            events = Event.objects.filter(start_time__lt=timezone.now()).order_by('-start_time')
         else:
             try:
-                events = event.objects.filter(start_time__lt=timezone.now()).order_by('-start_time')[:limit]
+                events = Event.objects.filter(start_time__lt=timezone.now()).order_by('-start_time')[:limit]
             except IndexError:
-                events = event.objects.filter(start_time__lt=timezone.now()).order_by('-start_time')
+                events = Event.objects.filter(start_time__lt=timezone.now()).order_by('-start_time')
             except:
                 return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -54,12 +54,12 @@ def pastEvents(request, limit=None):
 def futureEvents(request, limit=None):
     if request.method=='GET':
         if limit == None:
-            events = event.objects.filter(start_time__gte=timezone.now()).order_by('start_time')
+            events = Event.objects.filter(start_time__gte=timezone.now()).order_by('start_time')
         else:
             try:
-                events = event.objects.filter(start_time__gte=timezone.now()).order_by('start_time')[:limit]
+                events = Event.objects.filter(start_time__gte=timezone.now()).order_by('start_time')[:limit]
             except IndexError:
-                events = event.objects.filter(start_time__gte=timezone.now()).order_by('start_time')
+                events = Event.objects.filter(start_time__gte=timezone.now()).order_by('start_time')
             except:
                 return Response(status=status.HTTP_404_NOT_FOUND)
 
