@@ -72,7 +72,7 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"',
-                ROUTER_BASE: '/client'
+                ROUTER_BASE: '"/client"'
             }
         }),
     new webpack.optimize.UglifyJsPlugin({
