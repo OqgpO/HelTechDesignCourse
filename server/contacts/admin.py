@@ -5,11 +5,11 @@ from django.contrib import admin
 from .models import Speaker, Organisation
 
 class SpeakerAdmin(admin.ModelAdmin):
-    fields = ['full_name', 'introduction', 'portrait', 'organisation']
+    #fields = ['full_name', 'introduction', 'portrait', 'organisation']
     list_display = ['full_name']
 
 class OrganisationAdmin(admin.ModelAdmin):
-    fields = ['name', 'site_address', 'logo']
+    #fields = ['name', 'site_address', 'logo']
     list_display = ('name', 'site_address')
     
 admin.site.register(Speaker, SpeakerAdmin)

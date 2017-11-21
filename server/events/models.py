@@ -2,15 +2,14 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from contacts.models import Speaker
 
 class Event(models.Model):
     title = models.CharField(max_length=1000)
     start_time = models.DateTimeField('date organised')
     end_time = models.DateTimeField('date organised', blank=True)
     eid = models.CharField(max_length=400)
+    punchline = models.CharField(max_length=400, blank=True)
     description = models.TextField(max_length=2000)
-    speaker = models.ForeignKey(Speaker, null=True, blank=True)
     programme = models.TextField(max_length=2000, blank=True)
     attending_count = models.IntegerField(blank=True)
     cover_uri = models.URLField(max_length=1000, blank=True)
