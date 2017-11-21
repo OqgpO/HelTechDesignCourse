@@ -1,7 +1,7 @@
 <template>
   <div id="desc-block" class="landing">
 <div class="desc-block image-wrapper">
-<img src="./img/main-about-background.jpg" alt="About HelTech">
+<img src="../img/main-about-background.jpg" alt="About HelTech">
 </div>
 <div class="desc-block wrapper">
 <h1>{{titlepre}}<br/>{{titlepost}}</h1>

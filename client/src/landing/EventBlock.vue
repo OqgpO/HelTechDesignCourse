@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import SmallEvent from './common/SmallEvent.vue'
+    import SmallEvent from '../common/SmallEvent.vue'
 
     export default {
         data() {
@@ -44,7 +44,6 @@
                 console.log(response.data);
                 this.current = response.data;
             });
-            console.log('a is: ' + this.events)
         },
 
         ready: function() {

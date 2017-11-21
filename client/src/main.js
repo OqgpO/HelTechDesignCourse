@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource'
+import router from './router'
+
 Vue.use(VueResource);
 
-var filter = function(text, length, clamp){
+var filter = function (text, length, clamp) {
     clamp = clamp || '...';
     var node = document.createElement('div');
     node.innerHTML = text;
@@ -14,6 +16,11 @@ var filter = function(text, length, clamp){
 Vue.filter('truncate', filter);
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: {
+        App
+    }
+    //render: h => h(App)
 })
