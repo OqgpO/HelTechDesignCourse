@@ -4,25 +4,13 @@
 <header class="header" id="header">
 <div class="headerwrapper">
 <div id="logo-wrapper">
-<router-link to="../" title="Main page" class="header__logo" id="logo">
+<router-link to="./" title="Main page" class="header__logo" id="logo">
 <img src="../img/logo.png" alt="Main page" class="header__logo-image" />
 </router-link>
 </div>
-<div id="navigation">
-<nav id="main-menu" class="responsive-menus-sidr-processed">
-<ul class="nice-menu" id="nice-menu">
-<li class="menu__item">
-<a href="about.html" title="about" class="menu__link">about</a>
-</li>
-<li class="menu__item">
-<a href="events.html" title="events" class="menu__link">events</a>
-</li>
-<li class="menu__item">
-<a href="join.html" title="join" class="menu__link">join</a>
-</li>
-</ul>
-</nav>
-</div>
+
+<Navigation></Navigation>
+
 </div>
 </header>
 
@@ -55,12 +43,14 @@ launch and showcase their new products and services.</p>
 
 
 <script>
-import BottomRegion from '../landing/BottomRegion.vue'
+    import Navigation from '../common/Navigation.vue'
+    import BottomRegion from '../landing/BottomRegion.vue'
 
     export default {
         name: 'About',
         components: {
-            BottomRegion
+            BottomRegion,
+            Navigation,
         }
     }
 

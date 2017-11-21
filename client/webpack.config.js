@@ -1,6 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
-//var Vue = require('vue');
+    //var Vue = require('vue');
 var VueResource = require('vue-resource');
 
 //Vue.use(VueResource);
@@ -11,7 +11,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/client/dist/',
-        filename: 'build.js'
+        filename: 'build.js',
     },
     module: {
         rules: [
@@ -55,16 +55,24 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: '#eval-source-map'
+    devtool: '#eval-source-map',
+    plugins: [
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                ROUTER_BASE: '/client'
+            }
+        })
+        ]
 }
 
 if (process.env.NODE_ENV === 'production') {
     module.exports.devtool = '#source-map'
-    // http://vue-loader.vuejs.org/en/workflow/production.html
+        // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: '"production"'
+                NODE_ENV: '"production"',
+                ROUTER_BASE: '/client'
             }
         }),
     new webpack.optimize.UglifyJsPlugin({
