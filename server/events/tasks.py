@@ -42,7 +42,7 @@ class FB(CronJobBase):
 
         for event in fb_events['data']:
             try:
-                e = Event.objects.get(eid=str(event['id']))
+                e = Event.objects.get(eid=event['id'])
             except ObjectDoesNotExist:
                 e = Event()
                 
@@ -62,13 +62,13 @@ class FB(CronJobBase):
                 e.cover_uri = ""
 
             # fill in the data
-            e.eid=ep.eid,
-            e.title=ep.title,
-            e.start_time=ep.start_time,
-            e.end_time=ep.end_time,
-            e.programme=ep.programme,
-            e.description=ep.description, 
-            e.punchline=ep.punchline,
+            e.eid=ep.eid
+            e.title=ep.title
+            e.start_time=ep.start_time
+            e.end_time=ep.end_time
+            e.programme=ep.programme
+            e.description=ep.description 
+            e.punchline=ep.punchline
             
             #add the place
             if ep.place and ep.addr:
