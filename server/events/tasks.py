@@ -46,7 +46,7 @@ class FB(CronJobBase):
                 
                 #exists, lets update the participant count
                 ac = graph.get_object(id=event['id'], fields='attending_count')
-                e.attending_count = ac['attending_count']
+                e.attending_count = ac['attending_count'] or 0
                     
                 # fetch the cover photo
                 cover = graph.get_object(id=e.eid, fields=['cover'])

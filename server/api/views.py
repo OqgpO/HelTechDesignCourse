@@ -10,7 +10,7 @@ import datetime
 from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 class EventViewSet(viewsets.ModelViewSet):
@@ -86,3 +86,27 @@ def currentEvent(request):
         return Response(serializer.data)
     
     return Response(status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['GET'])
+@permission_classes((permissions.IsAuthenticatedOrReadOnly,))
+def keynote(request, eventId):
+    speakers = Speaker.objects.filter(event_id=eventId).filter(role='KN')
+    serializer = SpeakerSerializer(speakers, True, context={'request':request})
+
+    return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes((permissions.IsAuthenticatedOrReadOnly,))
+def panel(request, eventId):
+    speakers = Speaker.objects.filter(event_id=eventId).filter(role='PA')
+    serializer = SpeakerSerializer(speakers, True, context={'request':request})
+
+    return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes((permissions.IsAuthenticatedOrReadOnly,))
+def demo(request, eventId):
+    speakers = Speaker.objects.filter(event_id=eventId).filter(role='DE')
+    serializer = SpeakerSerializer(speakers, True, context={'request':request})
+
+    return Response(serializer.data)
