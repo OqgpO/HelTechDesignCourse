@@ -29,7 +29,7 @@ We want to achieve this by discovering a different emerging technology topic eac
 <h2>Upcoming Events</h2>
 <div class="up-events">
 
-<SmallEvent v-for="event in future" v-bind:key="event.id" class="events-column event-1" v-bind:event="event"></SmallEvent>
+<SmallEvent v-for="(event, index) in future" v-bind:key="event.id" v-bind:class="getEventClass(index)" v-bind:event="event"></SmallEvent>
     </div>
     </div>
 <div id="past-events"> <!--vue.js time!-->
@@ -40,7 +40,7 @@ We want to achieve this by discovering a different emerging technology topic eac
 <li v-for="item in future" :key="item.id">{{item.name}}</li>
 </ul>
 
-<SmallEvent v-for="event in past" :key="event.id" v-bind:class="getEventClass(event.id)" v-bind:event="event"></SmallEvent>
+<SmallEvent v-for="(event, index) in past" :key="event.id" v-bind:class="getEventClass(index)" v-bind:event="event"></SmallEvent>
     </div>
     </div>
     </div>
@@ -78,13 +78,13 @@ We want to achieve this by discovering a different emerging technology topic eac
                 if (response.ok) {
                     console.log('/heltech/api/events/past/9');
                     console.log(response.data);
-                    this.pastEvents = response.data;
+                    this.past = response.data;
                 } else {
-                    this.pastEvents = [];
+                    this.past = [];
                 }
             }).catch(function(err) {
                 console.log('/heltech/api/events/past/9 unavailable\n' + err);
-                this.pastEvents = [];
+                this.past = [];
             });
             this.$http.get('/heltech/api/events/future/9').then(function(response) {
                 if (response.ok) {
@@ -101,6 +101,7 @@ We want to achieve this by discovering a different emerging technology topic eac
         },
         methods: {
             getEventClass: function(id) {
+                console.log(id);
                 console.log("events-column event-" + id)
                 return "events-column event-" + id;
             }

@@ -1,5 +1,5 @@
 <template>
-  <div class="main-event-column">
+  <div v-if="event" class="main-event-column">
 <div class="image-wrapper">
 <router-link v-if="event" v-bind:to="eventUri()"><img v-bind:src="event.cover_uri" v-bind:alt="event.title"></router-link>
 </div>
@@ -8,7 +8,6 @@
 </div>
 <p>{{event.description | truncate(210, '...')}}</p>
 </div>
-
 </template>
 
 <script>
