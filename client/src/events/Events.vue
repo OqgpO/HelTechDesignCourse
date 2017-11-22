@@ -54,7 +54,7 @@ We want to achieve this by discovering a different emerging technology topic eac
     import SmallEvent from '../common/SmallEvent.vue'
 
     export default {
-        name: 'Events',
+        name: 'AllEvents',
         data: function() {
             return {
                 'past': this.pastEvents,

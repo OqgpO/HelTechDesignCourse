@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Landing from '../landing/Landing.vue'
-import Events from '../events/Events.vue'
+//import AllEvents from '../events/Events.vue'
 import EventDetail from '../event/Event.vue'
 import About from '../about/About.vue'
 import Join from '../join/Join.vue'
@@ -22,11 +22,11 @@ export default new Router({
             name: 'About',
             component: About
     },
-        {
-            path: '/events/',
-            name: 'Events',
-            component: Events
-    },
+        /*{
+            path: '/events',
+            name: 'AllEvents',
+            component: AllEvents
+    },*/
         {
             path: '/event/:id',
             name: 'EventDetail',
@@ -36,6 +36,6 @@ export default new Router({
             path: '/join',
             name: 'Join',
             component: Join
-    },
-]
+    }
+    ]
 })
