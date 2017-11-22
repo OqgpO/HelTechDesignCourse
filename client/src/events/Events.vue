@@ -29,86 +29,19 @@ We want to achieve this by discovering a different emerging technology topic eac
 <h2>Upcoming Events</h2>
 <div class="up-events">
 
-<div class="events-column event-1">
-<div class="image-wrapper">
-<a href="event.html"><img src="img/neurocells.jpg" alt="Neurocells"></a>
-</div>
-<div class="events-title">
-<h2><a href="event.html">Smart Grid</a></h2>
-</div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-</div>
-
-<div class="events-column event-2">
-<div class="image-wrapper">
-<a href="event.html"><img src="img/industry.jpg" alt="Industry"></a>
-</div>
-<div class="events-title">
-<h2><a href="event.html">100 years of finnish tech</a></h2>
-</div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
-<div class="events-column event-3">
-<div class="image-wrapper">
-<a href="event.html"><img src="img/industry.jpg" alt="Industry"></a>
-</div>
-<div class="events-title">
-<h2><a href="event.html">100 years of finnish tech</a></h2>
-</div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
-</div>
-</div>
-
+<SmallEvent v-for="event in future" v-bind:key="event.id" class="events-column" v-bind:class="getEventClass(event.id)"></SmallEvent>
+    </div>
+    </div>
 <div id="past-events"> <!--vue.js time!-->
 <h2>Past Events</h2>
 <div class="pt-events">
 
-<div class="events-column event-1">
-<div class="image-wrapper">
-<a href="event.html"><img src="img/neurocells.jpg" alt="Neurocells"></a>
-</div>
-<div class="events-title">
-<h2><a href="event.html">Smart Grid</a></h2>
-</div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-</div>
-
-<div class="events-column event-2">
-<div class="image-wrapper">
-<a href="event.html"><img src="img/industry.jpg" alt="Industry"></a>
-</div>
-<div class="events-title">
-<h2><a href="event.html">100 years of finnish tech</a></h2>
-</div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
-<div class="events-column event-3">
-<div class="image-wrapper">
-<a href="event.html"><img src="img/industry.jpg" alt="Industry"></a>
-</div>
-<div class="events-title">
-<h2><a href="event.html">100 years of finnish tech</a></h2>
-</div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
-</div>
-</div>
-
-</div>
-</div>
-</div>
-
+<SmallEvent v-for="event in past" v-bind:key="event.id" class="events-column" v-bind:class="getEventClass(event.id)"></SmallEvent>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 <BottomRegion></BottomRegion>
 
 </div>
@@ -118,38 +51,51 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 <script>
     import BottomRegion from '../landing/BottomRegion.vue'
     import Navigation from '../common/Navigation.vue'
+    import SmallEvent from '../common/SmallEvent.vue'
 
     export default {
         name: 'Events',
+        data: function() {
+            return {
+                'past': this.pastEvents,
+                'future': this.future
+            }
+        },
         components: {
             BottomRegion,
             Navigation,
+            SmallEvent,
         },
         created: function() {
             // `this` points to the vm instance
             this.$http.get('/heltech/api/events/past/9').then(function(response) {
                 if (response.ok) {
                     console.log(response.data);
-                    this.events = response.data;
+                    this.pastEvents = response.data;
                 } else {
-                    this.events = [];
+                    this.pastEvents = [];
                 }
             }).catch(function(err) {
                 console.log('/heltech/api/events/past/9 unavailable\n' + err);
-                this.events = [];
+                this.pastEvents = [];
             });
-            this.$http.get('/heltech/api/events/current').then(function(response) {
+            this.$http.get('/heltech/api/events/future/9').then(function(response) {
                 if (response.ok) {
                     console.log(response.data);
                     this.current = response.data;
                 } else {
-                    this.current = {};
+                    this.future = [];
                 }
             }).catch(function(err) {
-                console.log('/heltech/api/events/current unavailable' + err);
-                this.current = {};
+                console.log('/heltech/api/events/future/9 unavailable' + err);
+                this.future = [];
             });
         },
+        methods: {
+            getEventClass: function(id) {
+                return "events-column event-" + id;
+            }
+        }
     }
 
 </script>

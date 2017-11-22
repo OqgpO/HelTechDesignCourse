@@ -25,7 +25,7 @@
                 if (this.current) {
                     return ret
                 } else {
-                    return ret + this.current.id
+                    return ret + this.event.id
                 }
             },
         }
