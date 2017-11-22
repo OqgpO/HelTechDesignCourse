@@ -17,7 +17,7 @@
 <div id="main">
 <div id="content">
 <div class="event image-wrapper">
-<img v-bind:src="event.cover_page || 'Event Not found'" v-bind:alt="event.cover_page">
+<img v-bind:src="event.cover_uri" v-bind:alt="event.cover_uri">
 </div>
 <div class="event description">
 <h1>{{event.title}}</h1>
@@ -77,6 +77,9 @@
     export default {
         name: 'EventDetail',
         eventId: "",
+        keynote: [],
+        panel: [],
+        demo: [],
         event: {},
         components: {
             BottomRegion,
@@ -85,6 +88,9 @@
         data() {
             return {
                 event: this.event,
+                keynote: this.keynote,
+                panel: this.panel,
+                demo: this.demo
             }
         },
         created: function() {
@@ -96,6 +102,31 @@
             }).catch(function(err) {
                 console.log('/heltech/api/events/' + this.eventId + ' unavailable');
                 this.event = {}
+            });
+
+            this.$http.get('/heltech/api/events/' + this.eventId + "/keynote").then(function(response) {
+                console.log(response.data);
+                this.keynote = response.data;
+            }).catch(function(err) {
+                console.log('/heltech/api/events/' + this.eventId + '/keynote unavailable');
+                this.keynote = {}
+            });
+
+            this.$http.get('/heltech/api/events/' + this.eventId + "/panel").then(function(response) {
+                console.log(response.data);
+                this.panel = response.data;
+            }).catch(function(err) {
+                console.log('/heltech/api/events/' + this.eventId + '/panel unavailable');
+                this.panel = {}
+            });
+
+
+            this.$http.get('/heltech/api/events/' + this.eventId + "/demo").then(function(response) {
+                console.log(response.data);
+                this.demo = response.data;
+            }).catch(function(err) {
+                console.log('/heltech/api/events/' + this.eventId + '/demo unavailable');
+                this.demo = {}
             });
         },
     }

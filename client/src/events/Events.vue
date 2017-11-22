@@ -59,6 +59,8 @@ We want to achieve this by discovering a different emerging technology topic eac
 
     export default {
         name: 'Events',
+        future: [],
+        past: [],
         data: function() {
             return {
                 past: this.pastEvents ? this.pastEvents : [],
