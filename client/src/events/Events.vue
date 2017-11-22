@@ -29,7 +29,7 @@ We want to achieve this by discovering a different emerging technology topic eac
 <h2>Upcoming Events</h2>
 <div class="up-events">
 
-<SmallEvent v-for="event in future" v-bind:key="event.id" class="events-column" v-bind:class="{getEventClass(event.id)}" v-bind:event="event"></SmallEvent>
+<SmallEvent v-for="event in future" v-bind:key="event.id" class="events-column event-1" v-bind:event="event"></SmallEvent>
     </div>
     </div>
 <div id="past-events"> <!--vue.js time!-->
