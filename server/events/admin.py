@@ -4,6 +4,11 @@ from __future__ import unicode_literals
 from django.contrib import admin
 from .models import Event, EventWorker, FBApplication
 
+class PlaceAdmin(admin.ModelAdmin):
+    #fields = ['title', 'date_organised', 'description', 'speaker']
+    list_display = ('name', 'streetaddr')
+
+
 class EventAdmin(admin.ModelAdmin):
     #fields = ['title', 'date_organised', 'description', 'speaker']
     list_display = ('title', 'start_time')

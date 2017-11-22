@@ -14,7 +14,7 @@ class Organisation(models.Model):
     is_partner = models.BooleanField(default=False)
 
 class Speaker(models.Model):
-    full_name = models.CharField(max_length=200)
+    full_name = models.CharField(max_length=200, blank=True)
     title = models.CharField(max_length=400, blank=True);
     introduction = models.TextField(max_length=2000, blank=True)
     portrait = models.ImageField(upload_to='speaker_portraits/', default=default_portrait)

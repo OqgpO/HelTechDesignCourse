@@ -3,6 +3,11 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+
+class Place(models.Model):
+    name = models.CharField(max_length=1000)
+    streetaddr = models.CharField(max_length=1000, blank=True)
+
 class Event(models.Model):
     title = models.CharField(max_length=1000)
     start_time = models.DateTimeField('date organised')
@@ -13,6 +18,7 @@ class Event(models.Model):
     programme = models.TextField(max_length=2000, blank=True)
     attending_count = models.IntegerField(blank=True)
     cover_uri = models.URLField(max_length=1000, blank=True)
+    place = models.ForeignKey(Place, null=True, blank=True)
     
 class EventWorker(models.Model):
     user_token = models.CharField(max_length=400, blank=True)
@@ -22,6 +28,7 @@ class EventWorker(models.Model):
     name = models.CharField(max_length=200)
     page_name = models.CharField(max_length=200)
     page_id = models.CharField(max_length=200)
+    parse_speakers = models.BooleanField(default=False)
 
     
 class FBApplication(models.Model):

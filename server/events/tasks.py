@@ -47,19 +47,7 @@ class FB(CronJobBase):
                 #exists, lets update the participant count
                 ac = graph.get_object(id=event['id'], fields='attending_count')
                 e.attending_count = ac['attending_count']
-                e.save()
                     
-            except ObjectDoesNotExist:
-                # an uncached event, parse, and save
-                ep = EventParser(event)
-                ep.parse()
-                e = Event( eid=ep.eid,
-                           title=ep.title,
-                           start_time=ep.start_time,
-                           end_time=ep.end_time,
-                           programme=ep.programme,
-                           description=ep.description )
-          
                 # fetch the cover photo
                 cover = graph.get_object(id=e.eid, fields=['cover'])
                 
@@ -67,7 +55,56 @@ class FB(CronJobBase):
                     e.cover_uri = cover['cover']['source']
                 except KeyError:
                     e.cover_uri = ""
-                    e.save()
 
 
+
+            except ObjectDoesNotExist:
+                # an uncached event, parse, and save
+                ep = EventParser(event, ew.parse_speakers)
+                ep.parse()
+                e = Event( eid=ep.eid,
+                           title=ep.title,
+                           start_time=ep.start_time,
+                           end_time=ep.end_time,
+                           programme=ep.programme,
+                           description=ep.description, 
+                           punchline=ep.punchline,
+                           )
+
+
+                # fetch the cover photo
+                cover = graph.get_object(id=e.eid, fields=['cover'])
+                
+                try:
+                    e.cover_uri = cover['cover']['source']
+                except KeyError:
+                    e.cover_uri = ""
+                
+            e.save()
+
+            # fill the speakers
+            if ew.parse_speakers:
+                for speaker in ep.speakers:
+                    if speaker['name']=="": #org only
+                        org = Organisation(name=speaker['org'])
+                        org.save()
+                        speaker = Speaker(name=speaker['name'],
+                                          title=speaker['title'],
+                                          role=speaker['role'],
+                                          organisation=org)
+                        speaker.save()
+                    else: #is a person
+                        org = None
+                        if speaker['org']:
+                            org = Organisation(name=speaker['org'])
+                            org.save()
+                        
+                        speaker = Speaker(name=speaker['name'],
+                                          title=speaker['title'],
+                                          role=speaker['role'],
+                                          organisation=org)
+                        speaker.save()
+                        
+                   
             
+                        
