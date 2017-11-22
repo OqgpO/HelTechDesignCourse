@@ -71,7 +71,7 @@ class FB(CronJobBase):
             e.punchline=ep.punchline,
             
             #add the place
-            if ep.place and ep.streetaddr:
+            if ep.place and ep.addr:
                 try:
                     p = Place.objects.get(name=ep.place)
                 except ObjectDoesNotExist:

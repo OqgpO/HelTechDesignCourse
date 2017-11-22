@@ -15,7 +15,6 @@ class EventParser:
         if self.parse_speakers:
             self.speakers = self.parseSpeakers(self.programme)
 
-
         try:
             self.place = self.event['place']['name']
             self.addr = self.event['place']['location']['street']
