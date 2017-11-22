@@ -90,23 +90,26 @@ def currentEvent(request):
 @api_view(['GET'])
 @permission_classes((permissions.IsAuthenticatedOrReadOnly,))
 def keynote(request, eventId):
-    speakers = Speaker.objects.filter(event_id=eventId).filter(role='KN')
-    serializer = SpeakerSerializer(speakers, True, context={'request':request})
+    if request.method=='GET':
+        speakers = Speaker.objects.filter(event_id=eventId).filter(role='KN')
+        serializer = SpeakerSerializer(speakers, True, context={'request':request})
 
-    return Response(serializer.data)
+        return Response(serializer.data)
 
 @api_view(['GET'])
 @permission_classes((permissions.IsAuthenticatedOrReadOnly,))
 def panel(request, eventId):
-    speakers = Speaker.objects.filter(event_id=eventId).filter(role='PA')
-    serializer = SpeakerSerializer(speakers, True, context={'request':request})
+    if request.method=='GET':
+        speakers = Speaker.objects.filter(event_id=eventId).filter(role='PA')
+        serializer = SpeakerSerializer(speakers, True, context={'request':request})
 
-    return Response(serializer.data)
+        return Response(serializer.data)
 
 @api_view(['GET'])
 @permission_classes((permissions.IsAuthenticatedOrReadOnly,))
 def demo(request, eventId):
-    speakers = Speaker.objects.filter(event_id=eventId).filter(role='DE')
-    serializer = SpeakerSerializer(speakers, True, context={'request':request})
+    if request.method=='GET':
+        speakers = Speaker.objects.filter(event_id=eventId).filter(role='DE')
+        serializer = SpeakerSerializer(speakers, True, context={'request':request})
 
-    return Response(serializer.data)
+        return Response(serializer.data)
