@@ -36,10 +36,6 @@ We want to achieve this by discovering a different emerging technology topic eac
 <h2>Past Events</h2>
 <div class="pt-events">
 
-<ul>
-<li v-for="item in future" :key="item.id">{{item.name}}</li>
-</ul>
-
 <SmallEvent v-for="(event, index) in past" :key="event.id" v-bind:class="getEventClass(index)" v-bind:event="event"></SmallEvent>
     </div>
     </div>
