@@ -102,7 +102,7 @@ We want to achieve this by discovering a different emerging technology topic eac
         methods: {
             getEventClass: function(id) {
                 console.log(id);
-                console.log("events-column event-" + id)
+                console.log("events-column event-" + (id+1))
                 return "events-column event-" + id;
             }
         }
