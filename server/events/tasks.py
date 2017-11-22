@@ -88,7 +88,7 @@ class FB(CronJobBase):
                     if speaker['name']=="": #org only
                         org = Organisation(name=speaker['org'])
                         org.save()
-                        speaker = Speaker(name=speaker['name'],
+                        speaker = Speaker(full_name=speaker['name'],
                                           title=speaker['title'],
                                           role=speaker['role'],
                                           organisation=org)
@@ -99,7 +99,7 @@ class FB(CronJobBase):
                             org = Organisation(name=speaker['org'])
                             org.save()
                         
-                        speaker = Speaker(name=speaker['name'],
+                        speaker = Speaker(full_name=speaker['name'],
                                           title=speaker['title'],
                                           role=speaker['role'],
                                           organisation=org)
