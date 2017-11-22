@@ -28,7 +28,7 @@
 <div class="event first-line">
 <div class="column-one">
 <h5>keynote</h5>
-<p v-for="(key,kn) in keynote"><b>{{kn.full_name}}</b>,<br/>{{kn.title}}</p>
+<p v-for="kn in keynote" :key="kn.event"><b>{{kn.full_name}}</b>,<br/>{{kn.title}}</p>
 </div>
 <div class="column-two">
 <h5>Panel</h5>
