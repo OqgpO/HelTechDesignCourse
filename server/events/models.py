@@ -16,7 +16,7 @@ class Event(models.Model):
     punchline = models.CharField(max_length=400, blank=True)
     description = models.TextField(max_length=2000)
     programme = models.TextField(max_length=2000, blank=True)
-    attending_count = models.IntegerField(blank=True)
+    attending_count = models.IntegerField(blank=True, null=True)
     cover_uri = models.URLField(max_length=1000, blank=True)
     place = models.ForeignKey(Place, null=True, blank=True)
     
