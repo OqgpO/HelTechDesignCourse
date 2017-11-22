@@ -43,7 +43,7 @@ class EventParser:
             else:
                 if line.isupper():
                     self.punchline = line
-                    ret.replace(punchline, '', 1)
+                    ret.replace(line, '', 1)
                     break
 
         return ret
