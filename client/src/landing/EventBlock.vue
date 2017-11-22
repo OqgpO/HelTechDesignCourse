@@ -4,11 +4,11 @@
 <div class="main-event events-block-1">
 <h1>Ready to<br/>get inspired?</h1>
 <div class="image-wrapper">
-<router-link v-bind:to="eventUri()"><img v-bind:src="current.cover_uri || 'Not Found' " v-bind:alt="current.title || 'Not Found' "></router-link>
+<router-link v-bind:to="eventUri()"><img v-bind:src="current.cover_uri" v-bind:alt="current.title"></router-link>
 </div>
 <div class="text-wrapper">
-<h2><router-link v-bind:to="eventUri()">{{current.title || "Not Found" }}</router-link></h2>
-<p>{{current.description | truncate(300) || "Not Found" }}</p>
+<h2><router-link v-bind:to="eventUri()">{{current.title }}</router-link></h2>
+<p>{{current.description | truncate(300) }}</p>
 <div class="button-wrapper">
 <a id="get-tickets-events" class="violet-button" href="#webform-contact" title="Get tickets">get tickets</a>
 <router-link id="all-events" class="violet-button" to="events" title="All events">all events</router-link>
