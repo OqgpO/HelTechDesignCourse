@@ -1,7 +1,7 @@
 <template>
 <div class="speakers-partners-block">
 <div id="speakers-block" class="landing">
-<h1>Some Speakers</h1> <!-- http://kenwheeler.github.io/slick/#getting-started -->
+<h1>Previous Speakers</h1> <!-- http://kenwheeler.github.io/slick/#getting-started -->
 <div class="speakers-wrapper">
 <div class="speaker speaker-1">
 

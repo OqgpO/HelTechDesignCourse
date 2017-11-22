@@ -55,7 +55,7 @@
 </div>
 </div>
 
-<a class="black-button event-button" href="/" title="Tickets">Get tickets</a>
+<a v-if="past" class="black-button event-button" href="/" title="Tickets">Get tickets</a>
 </div>
 </div>
 </div>
@@ -77,6 +77,7 @@
         panel: [],
         demo: [],
         event: {},
+        upcoming: false,
         components: {
             BottomRegion,
             Navigation,
@@ -86,7 +87,8 @@
                 event: this.event,
                 keynote: this.keynote,
                 panel: this.panel,
-                demo: this.demo
+                demo: this.demo,
+                upcoming: this.upcoming
             }
         },
         created: function() {
@@ -95,6 +97,8 @@
             this.$http.get('/heltech/api/events/' + this.eventId).then(function(response) {
                 console.log(response.data);
                 this.event = response.data;
+                var e_time = new Date(this.event.start_time)
+                this.upcoming = this.event.start_time > Date.now()
             }).catch(function(err) {
                 console.log('/heltech/api/events/' + this.eventId + ' unavailable');
                 this.event = {}
