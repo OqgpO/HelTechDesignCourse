@@ -11,7 +11,7 @@ class Place(models.Model):
 class Event(models.Model):
     title = models.CharField(max_length=1000)
     start_time = models.DateTimeField('date organised')
-    end_time = models.DateTimeField('date organised', blank=True)
+    end_time = models.DateTimeField('date organised')
     eid = models.CharField(max_length=400)
     punchline = models.CharField(max_length=400, blank=True)
     description = models.TextField(max_length=2000)
