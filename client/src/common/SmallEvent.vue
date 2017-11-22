@@ -4,9 +4,9 @@
 <a href="event.html"><img v-bind:src="event.cover_uri" v-bind:alt="event.title"></a>
 </div>
 <div class="events-title">
-<h2><a href="event.html">{{event.title}}</a></h2>
+<h2><a href="event.html">{{event.title || "Not Found"}}</a></h2>
 </div>
-<p>{{event.description | truncate(300, '...')}}</p>
+<p>{{event.description | truncate(210, '...') || "Not Found"}}</p>
 </div>
 
 </template>
@@ -18,7 +18,7 @@
             return {
                 event: this.event,
             }
-        }
+        },
     }
 
 </script>
