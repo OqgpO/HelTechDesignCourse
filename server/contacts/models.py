@@ -5,7 +5,7 @@ from heltech import settings
 from django.db import models
 from events.models import Event
 
-default_portrait = settings.STATIC_ROOT + "/img/man-235.png"
+default_portrait = settings.STATIC_URL + "img/man-235.png"
 
 class Organisation(models.Model):
     name = models.CharField(max_length=200)

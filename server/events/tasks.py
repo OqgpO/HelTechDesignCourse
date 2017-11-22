@@ -72,6 +72,7 @@ class FB(CronJobBase):
                            description=ep.description, 
                            punchline=ep.punchline,
                            )
+                if ep.place and ep.streetaddr
 
 
                 # fetch the cover photo
@@ -88,8 +89,11 @@ class FB(CronJobBase):
             if ew.parse_speakers:
                 for speaker in ep.speakers:
                     if speaker['name']=="": #org only
-                        org = Organisation(name=speaker['org'])
-                        org.save()
+                        try:
+                            org = Organisation.objects.get()
+                        except ObjectDoesNotExist:
+                            org = Organisation(name=speaker['org'])
+                            org.save()
                         speaker = Speaker(full_name=speaker['name'],
                                           title=speaker['title'],
                                           role=speaker['role'],
@@ -99,8 +103,11 @@ class FB(CronJobBase):
                     else: #is a person
                         org = None
                         if speaker['org']:
-                            org = Organisation(name=speaker['org'])
-                            org.save()
+                            try:
+                                org = Organisation.objects.get()
+                            except ObjectDoesNotExist:
+                                org = Organisation(name=speaker['org'])
+                                org.save()
                         
                         speaker = Speaker(full_name=speaker['name'],
                                           title=speaker['title'],

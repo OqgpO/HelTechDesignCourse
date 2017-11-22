@@ -19,6 +19,9 @@ class Event(models.Model):
     attending_count = models.IntegerField(blank=True, null=True)
     cover_uri = models.URLField(max_length=1000, blank=True)
     place = models.ForeignKey(Place, null=True, blank=True)
+
+    def __str__(self):
+        return self.title
     
 class EventWorker(models.Model):
     user_token = models.CharField(max_length=400, blank=True)
