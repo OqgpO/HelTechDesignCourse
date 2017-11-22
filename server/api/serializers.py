@@ -23,5 +23,5 @@ class SpeakerSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Speaker
-        fields = ('url', 'full_name', 'introduction', 'portrait', 'organisation', 'event', 'role')
+        fields = ('url', 'full_name', 'title', 'introduction', 'portrait', 'organisation', 'event', 'role')
 

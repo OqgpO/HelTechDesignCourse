@@ -62,6 +62,8 @@ class FB(CronJobBase):
 
             except ObjectDoesNotExist:
                 # an uncached event, parse, and save
+                ep = EventParser(event, ew.parse_speakers)
+                ep.parse()
                 e = Event( eid=ep.eid,
                            title=ep.title,
                            start_time=ep.start_time,
@@ -91,7 +93,8 @@ class FB(CronJobBase):
                         speaker = Speaker(full_name=speaker['name'],
                                           title=speaker['title'],
                                           role=speaker['role'],
-                                          organisation=org)
+                                          organisation=org,
+                                          event=e)
                         speaker.save()
                     else: #is a person
                         org = None
@@ -102,7 +105,8 @@ class FB(CronJobBase):
                         speaker = Speaker(full_name=speaker['name'],
                                           title=speaker['title'],
                                           role=speaker['role'],
-                                          organisation=org)
+                                          organisation=org,
+                                          event=e)
                         speaker.save()
                         
                    
