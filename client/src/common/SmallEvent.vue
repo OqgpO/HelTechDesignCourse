@@ -22,7 +22,7 @@
         methods: {
             eventUri: function() {
                 var ret = "event/"
-                if (this.current) {
+                if (this.event) {
                     return ret
                 } else {
                     return ret + this.event.id

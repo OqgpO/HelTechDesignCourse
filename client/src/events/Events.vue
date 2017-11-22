@@ -29,14 +29,14 @@ We want to achieve this by discovering a different emerging technology topic eac
 <h2>Upcoming Events</h2>
 <div class="up-events">
 
-<SmallEvent v-for="event in future" v-bind:key="event.id" class="events-column" v-bind:class="getEventClass(event.id)"></SmallEvent>
+<SmallEvent v-for="event in future" v-bind:key="event.id" class="events-column" v-bind:class="getEventClass(event.id)" v-bind:event="event"></SmallEvent>
     </div>
     </div>
 <div id="past-events"> <!--vue.js time!-->
 <h2>Past Events</h2>
 <div class="pt-events">
 
-<SmallEvent v-for="event in past" v-bind:key="event.id" class="events-column" v-bind:class="getEventClass(event.id)"></SmallEvent>
+<SmallEvent v-for="event in past" v-bind:key="event.id" class="events-column" v-bind:class="getEventClass(event.id)" v-bind:event="event"></SmallEvent>
     </div>
     </div>
     </div>
@@ -70,7 +70,7 @@ We want to achieve this by discovering a different emerging technology topic eac
             // `this` points to the vm instance
             this.$http.get('/heltech/api/events/past/9').then(function(response) {
                 if (response.ok) {
-                    console.log(response.data);
+                    console.log('/heltech/api/events/past/9' + response.data);
                     this.pastEvents = response.data;
                 } else {
                     this.pastEvents = [];
@@ -81,7 +81,7 @@ We want to achieve this by discovering a different emerging technology topic eac
             });
             this.$http.get('/heltech/api/events/future/9').then(function(response) {
                 if (response.ok) {
-                    console.log(response.data);
+                    console.log('/heltech/api/events/future/9' + response.data);
                     this.current = response.data;
                 } else {
                     this.future = [];
@@ -93,6 +93,7 @@ We want to achieve this by discovering a different emerging technology topic eac
         },
         methods: {
             getEventClass: function(id) {
+                console.log("events-column event-" + id)
                 return "events-column event-" + id;
             }
         }

@@ -38,7 +38,7 @@
             // `this` points to the vm instance
             this.$http.get('/heltech/api/events/past/2').then(function(response) {
                 if (response.ok) {
-                    console.log(response.data);
+                    console.log("fetched past/2: " + response.data);
                     this.events = response.data;
                 } else {
                     this.events = [];
@@ -49,7 +49,7 @@
             });
             this.$http.get('/heltech/api/events/current').then(function(response) {
                 if (response.ok) {
-                    console.log(response.data);
+                    console.log("fetched current: " + response.data);
                     this.current = response.data;
                 } else {
                     this.current = {};
@@ -71,10 +71,10 @@
             eventUri: function() {
                 var ret = "event/"
                 if (this.current) {
-                    console.log("eventUri(): ret: ", ret)
+                    console.log("eventUri(): this.current exists ret: ", ret)
                     return ret
                 } else {
-                    console.log("eventUri(): ret: ", ret + this.current.id)
+                    console.log("eventUri(): this current does not exist ret: ", ret + this.current.id)
                     return ret + this.current.id
                 }
             },
