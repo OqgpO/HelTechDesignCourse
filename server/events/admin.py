@@ -2,19 +2,16 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Event, EventWorker, FBApplication
+from .models import Event, EventWorker, FBApplication, Place
 
 class PlaceAdmin(admin.ModelAdmin):
-    #fields = ['title', 'date_organised', 'description', 'speaker']
     list_display = ('name', 'streetaddr')
 
 
 class EventAdmin(admin.ModelAdmin):
-    #fields = ['title', 'date_organised', 'description', 'speaker']
     list_display = ('title', 'start_time')
 
 class EventWorkerAdmin(admin.ModelAdmin):
-    #fields = ['name','page_name', 'page_id', 'page_token','user_token', 'user_ll_token',']
     list_display = ('name', 'page_name')
     
 
@@ -27,3 +24,4 @@ class FBApplicationAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 admin.site.register(EventWorker, EventWorkerAdmin)
 admin.site.register(FBApplication, FBApplicationAdmin)
+admin.site.register(Place, PlaceAdmin)

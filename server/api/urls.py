@@ -19,5 +19,6 @@ urlpatterns = [
     url(r'^events/(?P<eventId>[0-9]+)/keynote$', keynote ),
     url(r'^events/(?P<eventId>[0-9]+)/panel$', panel ),
     url(r'^events/(?P<eventId>[0-9]+)/demo$', demo ),
+    url(r'^contacts/keynote$', speaker_set ),
 
 ]

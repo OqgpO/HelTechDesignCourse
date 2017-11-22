@@ -28,4 +28,8 @@ class Speaker(models.Model):
     )
     role = models.CharField(max_length=2, blank=True, choices=ROLE_CHOICES)
 
-
+    def __str__(self):
+        if not self.full_name:
+            return self.organisation.name;
+        else:
+            return self.full_name
