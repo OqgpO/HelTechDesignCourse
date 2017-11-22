@@ -41,8 +41,10 @@ class EventParser:
             if line == '':
                 continue
             else:
-                self.punchline = line
-                break
+                if line.isupper():
+                    self.punchline = line
+                    ret.replace(punchline, '', 1)
+                    break
 
         return ret
 

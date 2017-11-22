@@ -113,3 +113,12 @@ def demo(request, eventId):
         serializer = SpeakerSerializer(speakers, many=True, context={'request':request})
 
         return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes((permissions.IsAuthenticatedOrReadOnly,))
+def speaker_set(request):
+    if request.method=='GET':
+        speakers = speaker.objects.all().filter(role='KN').order_by('event__start_time')
+        serializer = SpeakerSerializer(speakers, many=True, context={'request':request})
+ 
+        return Response(serializer.data)

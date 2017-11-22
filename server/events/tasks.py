@@ -1,7 +1,7 @@
 from django_cron import CronJobBase, Schedule
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
-from events.models import EventWorker, Event
+from events.models import EventWorker, Event, Place
 from contacts.models import Speaker, Organisation
 from events.parsers import EventParser
 
@@ -43,78 +43,74 @@ class FB(CronJobBase):
         for event in fb_events['data']:
             try:
                 e = Event.objects.get(eid=str(event['id']))
-                ep = EventParser(event, ew.parse_speakers)
-                ep.parse()
-                
-                #exists, lets update the participant count
-                ac = graph.get_object(id=event['id'], fields='attending_count')
-                e.attending_count = ac['attending_count'] or 0
-                    
-                # fetch the cover photo
-                cover = graph.get_object(id=e.eid, fields=['cover'])
-                
-                try:
-                    e.cover_uri = cover['cover']['source']
-                except KeyError:
-                    e.cover_uri = ""
-
-
-
             except ObjectDoesNotExist:
-                # an uncached event, parse, and save
-                ep = EventParser(event, ew.parse_speakers)
-                ep.parse()
-                e = Event( eid=ep.eid,
-                           title=ep.title,
-                           start_time=ep.start_time,
-                           end_time=ep.end_time,
-                           programme=ep.programme,
-                           description=ep.description, 
-                           punchline=ep.punchline,
-                           )
-                if ep.place and ep.streetaddr
-
-
-                # fetch the cover photo
-                cover = graph.get_object(id=e.eid, fields=['cover'])
+                e = Event()
                 
+            ep = EventParser(event, ew.parse_speakers)
+            ep.parse()
+                
+            #exists, lets update the participant count
+            ac = graph.get_object(id=event['id'], fields='attending_count')
+            e.attending_count = ac['attending_count'] or 0
+                    
+            # fetch the cover photo
+            cover = graph.get_object(id=e.eid, fields=['cover'])
+                
+            try:
+                e.cover_uri = cover['cover']['source']
+            except KeyError:
+                e.cover_uri = ""
+
+            # fill in the data
+            e.eid=ep.eid,
+            e.title=ep.title,
+            e.start_time=ep.start_time,
+            e.end_time=ep.end_time,
+            e.programme=ep.programme,
+            e.description=ep.description, 
+            e.punchline=ep.punchline,
+            
+            #add the place
+            if ep.place and ep.streetaddr:
                 try:
-                    e.cover_uri = cover['cover']['source']
-                except KeyError:
-                    e.cover_uri = ""
+                    p = Place.objects.get(name=ep.place)
+                except ObjectDoesNotExist:
+                    p = Place()
+                    
+                p.name=ep.place
+                p.streetaddr=ep.place
                 
-            e.save()
+                p.save()
+                e.place=p
+
+            e.save() #that's all for now
 
             # fill the speakers
             if ew.parse_speakers:
                 for speaker in ep.speakers:
-                    if speaker['name']=="": #org only
+                    sobj = None
+                    org = None
+                    try:
+                        sobj = Speaker.objects.get(full_name = speaker['name'])
+                    except ObjectDoesNotExist:
+                        sobj = Speaker()
+
+                    if speaker['org']:
                         try:
-                            org = Organisation.objects.get()
+                            org = Organisation.objects.get(name=speaker['org'])
                         except ObjectDoesNotExist:
-                            org = Organisation(name=speaker['org'])
-                            org.save()
-                        speaker = Speaker(full_name=speaker['name'],
-                                          title=speaker['title'],
-                                          role=speaker['role'],
-                                          organisation=org,
-                                          event=e)
-                        speaker.save()
-                    else: #is a person
-                        org = None
-                        if speaker['org']:
-                            try:
-                                org = Organisation.objects.get()
-                            except ObjectDoesNotExist:
-                                org = Organisation(name=speaker['org'])
-                                org.save()
-                        
-                        speaker = Speaker(full_name=speaker['name'],
-                                          title=speaker['title'],
-                                          role=speaker['role'],
-                                          organisation=org,
-                                          event=e)
-                        speaker.save()
+                            org = Organisation()
+                             
+                    if speaker['org']:
+                        org.name=speaker['org']
+                        org.save()
+                    
+                    speaker = Speaker(full_name=speaker['name'],
+                                      title=speaker['title'],
+                                      role=speaker['role'],
+                                      organisation=org,
+                                      event=e)
+                    speaker.save()
                         
                    
             
