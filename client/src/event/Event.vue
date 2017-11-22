@@ -32,15 +32,11 @@
 </div>
 <div class="column-two">
 <h5>Panel</h5>
-<p><b>Elias Poyry</b>,<br/>Chief Business Officer of Virta Ltd</p>
-<p><b>Elias Poyry</b>,<br/>Chief Business Officer of Virta Ltd</p>
-<p><b>Elias Poyry</b>,<br/>Chief Business Officer of Virta Ltd</p>
+<p v-for="pan in panel" :key="pan.event"><b>{{pan.full_name}}</b>,<br/>{{pan.title}}</p>
 </div>
 <div class="column-three">
 <h5>Demo startups</h5>
-<p>Teraloop</p>
-<p>Teraloop</p>
-<p>Teraloop</p>
+    <p v-for="person in demo" :key="person.event"><b><i>{{person.organisation.name}}</i></b></p>
 </div>
 </div>
 
