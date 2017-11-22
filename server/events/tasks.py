@@ -43,6 +43,8 @@ class FB(CronJobBase):
         for event in fb_events['data']:
             try:
                 e = Event.objects.get(eid=str(event['id']))
+                ep = EventParser(event, ew.parse_speakers)
+                ep.parse()
                 
                 #exists, lets update the participant count
                 ac = graph.get_object(id=event['id'], fields='attending_count')
@@ -60,8 +62,6 @@ class FB(CronJobBase):
 
             except ObjectDoesNotExist:
                 # an uncached event, parse, and save
-                ep = EventParser(event, ew.parse_speakers)
-                ep.parse()
                 e = Event( eid=ep.eid,
                            title=ep.title,
                            start_time=ep.start_time,
