@@ -7,7 +7,7 @@ class EventParser:
 
     def parse(self):
         self.description = self.parseDescription(self.event['description'])
-        self.start_time = self.event['start_time']
+        self.start_time = str(self.event['start_time'])
         self.eid = self.event['id']
         self.title = self.parseName(self.event['name'])
         self.programme = self.parseProgram(self.event['description'])
@@ -24,7 +24,7 @@ class EventParser:
 
 
         try:
-            self.end_time = self.event['end_time']
+            self.end_time = str(self.event['end_time'])
         except KeyError:
             self.end_time = self.start_time
         
