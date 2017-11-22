@@ -17,12 +17,12 @@
 <div id="main">
 <div id="content">
 <div class="event image-wrapper">
-<img v-bind:src="event.cover_page || 'Event Not found'" v-bind:alt="event.cover_page || 'Event Not found'">
+<img v-bind:src="event.cover_page || 'Event Not found'" v-bind:alt="event.cover_page">
 </div>
 <div class="event description">
-<h1>{{event.name || "Event not found"}}</h1>
-<h5>{{event.tagline || "Event not found"}}</h5>
-<p>{{event.description || "Not Found"}}</p>
+<h1>{{event.title}}</h1>
+<h5>{{event.punchline}}</h5>
+<p>{{event.description}}</p>
 </div>
 
 <div class="event first-line">
@@ -93,11 +93,11 @@
             this.$http.get('/heltech/api/events/' + this.eventId).then(function(response) {
                 console.log(response.data);
                 this.event = response.data;
-            }).catch(function(err){
+            }).catch(function(err) {
                 console.log('/heltech/api/events/' + this.eventId + ' unavailable');
                 this.event = {}
             });
-    },
+        },
     }
 
 </script>
