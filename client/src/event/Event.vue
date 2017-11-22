@@ -13,7 +13,7 @@
 </div>
 </header>
 
-<div id="page-event" class="page">
+<div v-if="event" id="page-event" class="page">
 <div id="main">
 <div id="content">
 <div class="event image-wrapper">
