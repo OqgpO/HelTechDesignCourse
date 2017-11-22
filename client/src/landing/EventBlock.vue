@@ -17,7 +17,8 @@
 </div>
 
 <div class="other-event events-block-2">
-<SmallEvent class="event-1" v-for="event in events" :key="event.id" v-bind:event="event"></SmallEvent>
+<SmallEvent class="event-1" v-bind:event="events[0]"></SmallEvent>
+<SmallEvent class="event-2" v-bind:event="events[1]"></SmallEvent>
 </div>
 </div>
 </div>
@@ -72,10 +73,10 @@
                 var ret = "event/"
                 if (this.current) {
                     console.log("eventUri(): this.current exists ret: ", ret)
-                    return ret
+                    return ret + this.current.id
                 } else {
                     console.log("eventUri(): this current does not exist ret: ", ret + this.current.id)
-                    return ret + this.current.id
+                    return ret
                 }
             },
         }
