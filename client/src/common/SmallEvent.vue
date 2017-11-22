@@ -28,6 +28,7 @@
                     return ret + this.current.id
                 }
             },
+        }
     }
 
 </script>

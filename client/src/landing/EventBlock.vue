@@ -43,7 +43,7 @@
                 } else {
                     this.events = [];
                 }
-            }).catch(function(err){
+            }).catch(function(err) {
                 console.log('/heltech/api/events/past/2 unavailable\n' + err);
                 this.events = [];
             });
@@ -54,7 +54,7 @@
                 } else {
                     this.current = {};
                 }
-            }).catch(function(err){
+            }).catch(function(err) {
                 console.log('/heltech/api/events/current unavailable' + err);
                 this.current = {};
             });
@@ -71,8 +71,10 @@
             eventUri: function() {
                 var ret = "event/"
                 if (this.current) {
+                    console.log("eventUri(): ret: ", ret)
                     return ret
                 } else {
+                    console.log("eventUri(): ret: ", ret + this.current.id)
                     return ret + this.current.id
                 }
             },

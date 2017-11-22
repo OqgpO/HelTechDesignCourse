@@ -5,22 +5,24 @@
 </div>
 <div class="button-wrapper">
 <a id="get-tickets-main" class="black-button" href="#webform-contact" title="Get tickets">get tickets</a>
-<a id="join-main" class="black-button" href="/join.html" title="Get on stage">{{msg}}</a>
+<router-link id="join-main" class="black-button" to="join" title="Get on stage">{{msg}}</router-link>
 </div>
 </div>
 </div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      msg: 'Get on stage'
+    export default {
+        data() {
+            return {
+                msg: 'Get on stage'
+            }
+        }
     }
-  }
-}
+
 </script>
 
 <style>
+
 
 </style>
