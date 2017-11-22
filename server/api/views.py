@@ -92,7 +92,7 @@ def currentEvent(request):
 def keynote(request, eventId):
     if request.method=='GET':
         speakers = Speaker.objects.filter(event_id=eventId).filter(role='KN')
-        serializer = SpeakerSerializer(speakers, True, context={'request':request})
+        serializer = SpeakerSerializer(speakers, many=True, context={'request':request})
 
         return Response(serializer.data)
 
@@ -101,7 +101,7 @@ def keynote(request, eventId):
 def panel(request, eventId):
     if request.method=='GET':
         speakers = Speaker.objects.filter(event_id=eventId).filter(role='PA')
-        serializer = SpeakerSerializer(speakers, True, context={'request':request})
+        serializer = SpeakerSerializer(speakers, many=True, context={'request':request})
 
         return Response(serializer.data)
 
@@ -110,6 +110,6 @@ def panel(request, eventId):
 def demo(request, eventId):
     if request.method=='GET':
         speakers = Speaker.objects.filter(event_id=eventId).filter(role='DE')
-        serializer = SpeakerSerializer(speakers, True, context={'request':request})
+        serializer = SpeakerSerializer(speakers, many=True, context={'request':request})
 
         return Response(serializer.data)
