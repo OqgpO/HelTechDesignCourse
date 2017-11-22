@@ -61,8 +61,8 @@ We want to achieve this by discovering a different emerging technology topic eac
         name: 'Events',
         data: function() {
             return {
-                'past': this.pastEvents,
-                'future': this.future
+                past: this.pastEvents,
+                future: this.future
             }
         },
         components: {
