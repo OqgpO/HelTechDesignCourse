@@ -9,7 +9,7 @@ import Join from '../join/Join.vue'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'history',
+    //mode: 'history',
     base: process.env.ROUTER_BASE,
     routes: [
         {
