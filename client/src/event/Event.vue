@@ -28,7 +28,7 @@
 <div class="event first-line">
 <div class="column-one">
 <h5>keynote</h5>
-<p><b>Elias Poyry</b>,<br/>Chief Business Officer of Virta Ltd</p>
+<p v-for="(key,kn) in keynote"><b>{{kn.full_name}}</b>,<br/>{{kn.title}}</p>
 </div>
 <div class="column-two">
 <h5>Panel</h5>
@@ -59,7 +59,7 @@
 </div>
 </div>
 
-<a class="black-button event-button" href="/" title="test button">Get tickets</a>
+<a class="black-button event-button" href="/" title="Tickets">Get tickets</a>
 </div>
 </div>
 </div>
