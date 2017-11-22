@@ -4,7 +4,7 @@
 <div class="main-event events-block-1">
 <h1>Ready to<br/>get inspired?</h1>
 <div class="image-wrapper">
-<a href="event.html"><img v-bind:src="current.cover_uri || 'Not Found' " v-bind:alt="current.title || 'Not Found' "></a>
+<router-link v-bind:to="eventUri()"><img v-bind:src="current.cover_uri || 'Not Found' " v-bind:alt="current.title || 'Not Found' "></router-link>
 </div>
 <div class="text-wrapper">
 <h2><router-link v-bind:to="eventUri()">{{current.title || "Not Found" }}</router-link></h2>

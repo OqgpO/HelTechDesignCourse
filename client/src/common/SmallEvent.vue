@@ -1,10 +1,10 @@
 <template>
   <div class="main-event-column">
 <div class="image-wrapper">
-<a href="event.html"><img v-bind:src="event.cover_uri" v-bind:alt="event.title"></a>
+<router-link v-bind:to="eventUri()"><img v-bind:src="event.cover_uri" v-bind:alt="event.title"></router-link>
 </div>
 <div class="events-title">
-<h2><a href="event.html">{{event.title || "Not Found"}}</a></h2>
+<h2><router-link v-bind:to="eventUri()">{{event.title || "Not Found"}}</router-link></h2>
 </div>
 <p>{{event.description | truncate(210, '...') || "Not Found"}}</p>
 </div>
@@ -19,6 +19,15 @@
                 event: this.event,
             }
         },
+        methods: {
+            eventUri: function() {
+                var ret = "event/"
+                if (this.current) {
+                    return ret
+                } else {
+                    return ret + this.current.id
+                }
+            },
     }
 
 </script>
