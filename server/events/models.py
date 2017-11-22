@@ -20,7 +20,7 @@ class Event(models.Model):
     cover_uri = models.URLField(max_length=1000, blank=True)
     place = models.ForeignKey(Place, null=True, blank=True)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.title
     
 class EventWorker(models.Model):
