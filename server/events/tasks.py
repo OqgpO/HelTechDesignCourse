@@ -94,8 +94,9 @@ class FB(CronJobBase):
                 print now
                 print ep.speakers
                 
-                if edt >= now:
+                if edt >= now or (not Speaker.objects.filter(event__eid=e.eid).exists())
                     (count, thedict) = speakers = Speaker.objects.filter(event__eid=e.eid).delete()
+                    print "should update"
                     print count
                     print thedict
                     logger.debug("deleted: " + str(count) + " speakers, details: " + str(thedict))
