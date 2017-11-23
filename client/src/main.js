@@ -26,9 +26,9 @@ var getTime = function (text) {
     var m = d.getMinutes()
     var ret = ""
     if (h < 10) {
-        ret = "0" + h
+        ret = "0" + h;
     } else {
-        ret = h.toString
+        ret = h;
     }
     ret += ":"
     if (m < 10) {
