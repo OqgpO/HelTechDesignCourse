@@ -1011,10 +1011,10 @@ a.meetup-button {
 	margin-top:-60px;
 }
 #events-block {
-	background-image:url("../img/topblock.png");
+	background-image:url("../img/polygon_edited.png");
 	background-size:1200px auto;
 	background-repeat:no-repeat;
-	background-position:center top -340px;
+	background-position:center top 0;
 	padding:200px 0;
 	margin-left:-86px;
 	margin-right:-86px;
