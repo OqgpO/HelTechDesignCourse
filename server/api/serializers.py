@@ -1,6 +1,11 @@
-from events.models import Event
+from events.models import Event, Place
 from contacts.models import Speaker, Organisation
 from rest_framework import serializers
+
+class PlaceSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Place
+        fields = ('url', 'id', 'name', 'streetaddr')
 
 class EventSerializer(serializers.HyperlinkedModelSerializer):
     speakers = serializers.HyperlinkedRelatedField(
@@ -8,10 +13,11 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True,
         view_name='speaker-detail'
     )
+    place = PlaceSerializer(many=False, read_only=True)
 
     class Meta:
         model = Event
-        fields = ('url', 'id', 'title', 'start_time', 'end_time', 'eid', 'programme', 'description', 'attending_count', 'cover_uri', 'speakers')
+        fields = ('url', 'id', 'title', 'start_time', 'end_time', 'eid', 'programme', 'description', 'attending_count', 'cover_uri', 'place', 'speakers')
 
 class OrganisationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
