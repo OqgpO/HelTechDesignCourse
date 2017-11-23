@@ -13,7 +13,7 @@ class EventParser:
         self.programme = self.parseProgram(self.event['description']).strip()
 
         if self.parse_speakers:
-            self.speakers = self.parseSpeakers(self.programme).strip()
+            self.speakers = self.parseSpeakers(self.programme)
 
         try:
             self.place = self.event['place']['name'].strip()
