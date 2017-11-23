@@ -78,7 +78,7 @@ class EventParser:
                 if re.search('keynote', curr_role, re.IGNORECASE): #person
                     person_line = line.split(',') #<name>,<title>,<org> for now!
                     if len(person_line) == 2:
-                        speakers.append( {'role':'PA', 
+                        speakers.append( {'role':'KN', 
                                           'name':person_line[0].strip(),
                                           'title':person_line[1].strip(),
                                           'org': ""} )
