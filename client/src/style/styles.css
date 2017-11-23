@@ -912,7 +912,7 @@ a.meetup-button {
 	background-position: center center;
 }
 
-.main-event.events-block-1 h1:after {
+#page-main .main-event.events-block-1 h1:after {
 	content:"";
 	width:330px;
 	height:23px;
@@ -921,7 +921,7 @@ a.meetup-button {
 	position:absolute;
 	right:0;
 }
-.main-event.events-block-1 .image-wrapper {
+#page-main .main-event.events-block-1 .image-wrapper {
 	margin-top:40px;
 }
 #events-block .button-wrapper {
