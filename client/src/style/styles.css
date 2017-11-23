@@ -871,26 +871,26 @@ a.meetup-button {
 }
 
 @media (min-width: 1100px) {
-.events-column:nth-child(odd) {
+#page-events .events-column:nth-child(odd) {
 	margin-right:0;
 }
 
-#past-events .events-column,
-#upcomming-events .events-column {
+#page-events #past-events .events-column,
+#page-events #upcomming-events .events-column {
 	width:32%;
 	float:left;
 	margin-right:2%;
 }
 
-#past-events .events-column:nth-child(3n),
-#upcomming-events .events-column:nth-child(3n) {
+#page-events #past-events .events-column:nth-child(3n),
+#page-events #upcomming-events .events-column:nth-child(3n) {
 	margin-right:0;
 }
-.events-column {
+#page-events .events-column {
 	height:540px;
 }
-.pt-events,
-.up-events {
+#page-events .pt-events,
+#page-events .up-events {
 	margin-top:50px;
 }
 
