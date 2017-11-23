@@ -1020,14 +1020,22 @@ a.meetup-button {
 	margin-right:-86px;
 	height:1000px;
 }
+
 #partners-wrapper {
-	top: 85px;
+	position:relative;
+}
+
+#partners-wrapper:before {
+	top:-50px;
+	height:800px;
+	width:100%;
 	background-image:url("../img/helsinki_edited.png");
-	background-size:1200px auto;
+	background-size:1000px auto;
 	background-repeat:no-repeat;
-	background-position:center top -140px;
-	margin-left:-86px;
-	margin-right:-86px;
+	background-position:center top -120px;
+	content:"";
+	z-index: -1;
+	position:absolute;
 }
 #partners-block {
 	margin-top:100px;
