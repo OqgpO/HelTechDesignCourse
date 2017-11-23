@@ -6,7 +6,7 @@
 <div class="events-title">
 <h2><router-link v-bind:to="eventUri()">{{event.title}}</router-link></h2>
 </div>
-<p>{{event.description | truncate(210, '...')}}</p>
+<p>{{event.description | truncate(177, '...')}}</p>
 </div>
 </template>
 
