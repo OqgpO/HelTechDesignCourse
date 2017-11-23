@@ -6,9 +6,9 @@
 <h1>Stay in touch</h1>
 <div class="wrapper-block">
 <div class="form first">
-<a class="fb-button" href="/" title="Facebook"></a>
-<a class="meetup-button" href="/" title="Meetup"></a>
-<a class="mail-button" href="mailto:email@email.com" title="Email us"></a>
+<a class="fb-button" href="https://www.facebook.com/HELTechMeetup/" title="Facebook"></a>
+<a class="meetup-button" href="https://www.meetup.com/HELTech/" title="Meetup"></a>
+<a class="mail-button" href="teodora.berg@aaltoes.com" title="Email us"></a>
 </div>
 <div class="form second">
 <p>FOMO about what's happening on the Helsinki tech and entrepreneurship scene? Sign up for our newsletter</p>

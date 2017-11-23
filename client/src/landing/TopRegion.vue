@@ -4,7 +4,7 @@
 <div id="main-logo">
 </div>
 <div class="button-wrapper">
-<a id="get-tickets-main" class="black-button" href="#webform-contact" title="Get tickets">get tickets</a>
+<a id="get-tickets-main" class="black-button" href="https://holvi.com/shop/aaltoes16/section/hel-tech-meetup/" title="Get tickets">get tickets</a>
 <router-link id="join-main" class="black-button" to="join" title="Get on stage">{{msg}}</router-link>
 </div>
 </div>

@@ -20,10 +20,11 @@
 
 <h1>Feeding your curiosity</h1>
 
+<div class="events-text">
 <p>In our world of fast developing technology, curiosity is never ending. The thirst for discovery can never be quenched.
 For better or worse curiosity drives the world forward. Therefore we wish to plant the seeds of curiosity in people.
 We want to achieve this by discovering a different emerging technology topic each month.</p>
-
+</div>
 
 <div id="upcomming-events"> <!--vue.js time!-->
 <h2>Upcoming Events</h2>

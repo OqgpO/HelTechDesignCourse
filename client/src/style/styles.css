@@ -271,8 +271,8 @@ a.violet-button:hover,
 a.fb-button,
 a.meetup-button,
 a.mail-button {
-	width:37px;
-	height:37px;
+	width:60px;
+	height:60px;
 	display:block;
 	text-decoration: none;
 	background-position: center center;
@@ -282,17 +282,17 @@ a.mail-button {
 }
 
 a.fb-button {
-	background-image: url("../img/fb-icon.jpg");
+	background-image: url("../img/facebookicon.png");
 	margin-right:15px;
 }
 
 a.meetup-button {
-	background-image: url("../img/fb-icon.jpg");
+	background-image: url("../img/meetupicon.png");
 	margin-right:15px;
 }
 
 a.mail-button {
-    background-image: url("../img/fb-icon.jpg");
+    background-image: url("../img/mailicon.png");
 }
 
 /*Landing page*/
@@ -424,6 +424,10 @@ a.mail-button {
 	max-width:100%;
 	width:auto;
 	height:auto;
+}
+
+.speakers-wrapper .image-wrapper img{
+	width:100%;
 }
 
 .event.description,
@@ -651,24 +655,6 @@ a.meetup-button {
 	height: 200px;
 }
 
-.speaker:nth-child(2n+1){
-	margin-right:0;
-}
-
-.speakers-wrapper .speaker {
-	max-width:none;
-	width:23.5%;
-	float:left;
-	margin-right:2%;
-	height:350px;
-}
-
-.speaker:nth-child(4n){
-	margin-right:0;
-}
-.speakers-wrapper {
-	margin-bottom:0;
-}
 }
 
 @media (min-width: 900px) {
@@ -780,7 +766,7 @@ a.fb-button {
 
 a.fb-button,
 a.meetup-button {
-	margin-right:35px;
+	margin-right:20px;
 }
 #top-block {
 	width:100%;
@@ -802,8 +788,10 @@ a.meetup-button {
 }
 
 #top-block:before {
-	top: 0;
-	background-image: url("../img/main-top-background.png");
+	top: -50px;
+	background-image: url("../img/smiles_edited.png");
+	background-size:1200px auto;
+	height:800px;
 }
 
 #main-logo {
@@ -856,6 +844,24 @@ a.meetup-button {
 	align-items:center;
 }
 
+.speaker:nth-child(2n+1){
+	margin-right:0;
+}
+
+.speakers-wrapper .speaker {
+	max-width:none;
+	width:23.5%;
+	float:left;
+	margin-right:2%;
+	height:350px;
+}
+
+.speaker:nth-child(4n){
+	margin-right:0;
+}
+.speakers-wrapper {
+	margin-bottom:0;
+}
 #partners-block {
 	margin-top:60px;
 }
@@ -909,6 +915,10 @@ a.meetup-button {
 
 
 @media (min-width: 1200px) {
+.events-text {
+	max-width:800px;
+}
+
 .desc-block.wrapper:before {
 	content:"";
 	width:120px;
@@ -935,9 +945,9 @@ a.meetup-button {
 #webform-contact .form.second {
 	max-width:500px;
 }
-#top-block {
-	height:520px;
-}
+/*#top-block {
+	height:550px;
+}*/
 .speakers-partners-block,
 #desc-block {
 	max-width:1000px;
@@ -1006,15 +1016,15 @@ a.meetup-button {
 	margin-right:-86px;
 	height:970px;
 }
-.speakers-partners-block:before {
+/*.speakers-partners-block:before {
 	top: 85px;
-	background-image:url("../img/main-speakers-background.png");
+	background-image:url("../img/helsinki_edited.png");
 	background-size:1200px auto;
 	background-repeat:no-repeat;
 	background-position:center top -140px;
 	margin-left:-86px;
 	margin-right:-86px;
-}
+}*/
 #partners-block {
 	margin-top:100px;
 }

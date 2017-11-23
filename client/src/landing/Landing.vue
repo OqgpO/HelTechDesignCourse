@@ -1,24 +1,23 @@
 <template>
- <div>
+<div>
 <header class="header" id="header">
 <div class="headerwrapper">
-
 <Navigation></Navigation>
 </div>
 </header>
 
-    <TopRegion></TopRegion>
-  <div id="page-main" class="page">
+<TopRegion></TopRegion>
+<div id="page-main" class="page">
 <div id="main">
 <div id="content">
 <Intro></Intro>
 <EventBlock></EventBlock>
 <SpeakersPartnersBlock></SpeakersPartnersBlock>
-<BottomRegion></BottomRegion>
-</div>
-</div>
 
-  </div>
+</div>
+</div>
+ </div>
+<BottomRegion></BottomRegion> 
   </div>
 </template>
 
