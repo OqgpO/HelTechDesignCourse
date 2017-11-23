@@ -5,7 +5,7 @@ from rest_framework import serializers
 class PlaceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Place
-        fields = ('url', 'id', 'name', 'streetaddr')
+        fields = ('id', 'name', 'streetaddr')
 
 class EventSerializer(serializers.HyperlinkedModelSerializer):
     speakers = serializers.HyperlinkedRelatedField(
