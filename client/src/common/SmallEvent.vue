@@ -4,9 +4,9 @@
 <router-link v-if="event" v-bind:to="eventUri()"><img v-bind:src="event.cover_uri" v-bind:alt="event.title"></router-link>
 </div>
 <div class="events-title">
-<h2><router-link v-bind:to="eventUri()">{{event.title}}</router-link></h2>
+<h2><router-link v-bind:to="eventUri()">{{event.title | truncate(30, '')}}</router-link></h2>
 </div>
-<p>{{event.description | truncate(210, '...')}}</p>
+<p>{{event.description | truncate(177, '...')}}</p>
 </div>
 </template>
 

@@ -12,6 +12,34 @@ var truncate = function (text, length, clamp) {
     return content.length > length ? content.slice(0, length) + clamp : content;
 }
 
+var getDate = function (text) {
+    var d = new Date(text);
+    return d.toLocaleDateString("en-US", {
+        month: 'long',
+        day: 'numeric'
+    })
+}
+
+var getTime = function (text) {
+    var d = new Date(text)
+    var h = d.getHours()
+    var m = d.getMinutes()
+    var ret = ""
+    if (h < 10) {
+        ret = "0" + h;
+    } else {
+        ret = h;
+    }
+    ret += ":"
+    if (m < 10) {
+        ret += 0;
+        ret += m;
+    }
+    return ret;
+}
+
+Vue.filter('getTime', getTime);
+Vue.filter('getDate', getDate);
 Vue.filter('truncate', truncate);
 
 

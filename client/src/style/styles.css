@@ -153,7 +153,9 @@ ul.nice-menu:after,
 #past-events:after,
 #upcomming-events:after,
 .partners-logos .image-wrapper:after,
-.speakers-wrapper:after {
+.speakers-wrapper:after,
+.up-events:after,
+.pt-events:after {
 	content: " ";
     display: block;
     height: 0;
@@ -391,6 +393,11 @@ a.mail-button {
 	color: #fff;
 }
 
+#upcomming-events .big,
+#past-events .big {
+	font-size:34px;
+}
+
 .main-event-column {
 	margin-top:30px;
 }
@@ -421,6 +428,10 @@ a.mail-button {
 
 #page-event  h1{
 	font-weight:normal;
+	text-align:center;
+}
+
+.event.image-wrapper {
 	text-align:center;
 }
 
@@ -552,8 +563,15 @@ a.mail-button {
 	margin-right:4%;
 }
 
-.events-title {
+#page-main .events-title {
 	height:65px;
+	overflow:hidden;
+}
+
+
+#page-events .events-title {
+	height:100px;
+	overflow:hidden;
 }
 
 .pt-events .image-wrapper,
@@ -575,14 +593,18 @@ a.mail-button {
 	object-fit: cover;
 	flex: 1;
 	overflow: hidden;
-	height: 180px;
+	height: 150px;
     line-height: 0;
+}
+
+#page-events .image-wrapper a{
+	height:150px;
 }
 
 .events-column {
 	width:48%;
 	float:left;
-	height:450px;
+	height:400px;
 }
 .events-column:nth-child(odd) {
 	margin-right:4%;
@@ -656,9 +678,12 @@ a.meetup-button {
 .pt-events .image-wrapper img,
 .up-events .image-wrapper img,
 .other-event .image-wrapper img{
-	height: 200px;
+	height: 160px;
 }
 
+#page-events .image-wrapper a{
+	height:160px;
+}
 }
 
 @media (min-width: 900px) {
@@ -683,31 +708,13 @@ a.meetup-button {
 .pt-events .image-wrapper img,
 .up-events .image-wrapper img,
 .other-event .image-wrapper img{
-	height: 250px;
+	height: 200px;
 }
 
-.events-column:nth-child(odd) {
-	margin-right:0;
+#page-events .image-wrapper a{
+	height:200px;
 }
 
-#past-events .events-column,
-#upcomming-events .events-column {
-	width:32%;
-	float:left;
-	margin-right:2%;
-}
-
-#past-events .events-column:nth-child(3n),
-#upcomming-events .events-column:nth-child(3n) {
-	margin-right:0;
-}
-.events-column {
-	height:540px;
-}
-.pt-events,
-.up-events {
-	margin-top:50px;
-}
 }
 
 @media (min-width: 1000px) {
@@ -812,34 +819,34 @@ a.meetup-button {
 	padding:40px;
 	
 }	
-.main-event.events-block-1,
-.other-event.events-block-2 {
+#page-main  .main-event.events-block-1,
+#page-main  .other-event.events-block-2 {
 	float:left;
 }
-.main-event.events-block-1 {
+#page-main  .main-event.events-block-1 {
 	width:59%;
 	margin-right:5%;
 }
 .other-event.events-block-2 {
 	width:36%;
 }
-.main-event-column.event-1, 
-.main-event-column.event-2 {
+#page-main  .main-event-column.event-1, 
+#page-main  .main-event-column.event-2 {
     float: none;
     width: 100%;
 }
-.main-event-column.event-1 {
+#page-main  .main-event-column.event-1 {
 	margin-right:0;
 }
 
 
-.main-event-column.event-1{
+#page-main  .main-event-column.event-1{
     margin-top: 0;
 }
 #events-block .events-title {
     height: auto;
 }
-.other-event .image-wrapper {
+#page-main  .other-event .image-wrapper {
 	margin-top:0;
 }
 .wrapper-events-block {
@@ -872,9 +879,43 @@ a.meetup-button {
 .header {
     height: 106px;
 }
+#page-events .main-event-column {
+	margin-top:0;
+}
+.pt-events .image-wrapper img,
+.up-events .image-wrapper img,
+.other-event .image-wrapper img{
+	height: 220px;
+}
+
+#page-events .image-wrapper a{
+	height:220px;
+}
 }
 
 @media (min-width: 1100px) {
+#page-events .events-column:nth-child(odd) {
+	margin-right:0;
+}
+
+#page-events #past-events .events-column,
+#page-events #upcomming-events .events-column {
+	width:32%;
+	float:left;
+	margin-right:2%;
+}
+
+#page-events #past-events .events-column:nth-child(3n),
+#page-events #upcomming-events .events-column:nth-child(3n) {
+	margin-right:0;
+}
+#page-events .events-column {
+	height:420px;
+}
+#page-events .pt-events,
+#page-events .up-events {
+	margin-top:30px;
+}
 
 .desc-block.wrapper {
 	position:relative;
@@ -894,7 +935,7 @@ a.meetup-button {
 	background-position: center center;
 }
 
-.main-event.events-block-1 h1:after {
+#page-main .main-event.events-block-1 h1:after {
 	content:"";
 	width:330px;
 	height:23px;
@@ -903,7 +944,7 @@ a.meetup-button {
 	position:absolute;
 	right:0;
 }
-.main-event.events-block-1 .image-wrapper {
+#page-main .main-event.events-block-1 .image-wrapper {
 	margin-top:40px;
 }
 #events-block .button-wrapper {
@@ -914,6 +955,15 @@ a.meetup-button {
 }
 .speakers-wrapper {
 	margin-top:70px;
+}
+.pt-events .image-wrapper img,
+.up-events .image-wrapper img,
+.other-event .image-wrapper img{
+	height: 180px;
+}
+
+#page-events .image-wrapper a{
+	height:180px;
 }
 }
 
@@ -949,9 +999,7 @@ a.meetup-button {
 #webform-contact .form.second {
 	max-width:500px;
 }
-/*#top-block {
-	height:550px;
-}*/
+
 .speakers-partners-block,
 #desc-block {
 	max-width:1000px;
@@ -975,11 +1023,11 @@ a.meetup-button {
 	max-width:1000px;
 	margin:0 auto;
 }
-.main-event.events-block-1 {
+#page-main .main-event.events-block-1 {
 	width:60%;
 	margin-right:8%;
 }
-.other-event.events-block-2 {
+#page-main .other-event.events-block-2 {
 	width:32%;
 }
 .wrapper-events-block {
@@ -990,9 +1038,7 @@ a.meetup-button {
 	width:30%;
 	margin-right:5%;
 }
-.events-title {
-    height: auto;
-}
+
 #events-block,
 #webform-contact {
 	background-color:transparent;
@@ -1015,24 +1061,35 @@ a.meetup-button {
 	background-size:1200px auto;
 	background-repeat:no-repeat;
 	background-position:center top 0;
-	padding:90px 0;
+	padding:180px 0;
 	margin-left:-86px;
 	margin-right:-86px;
-	height:1000px;
+	height:800px;
 }
-/*.speakers-partners-block:before {
-	top: 85px;
+
+#partners-wrapper {
+	position:relative;
+}
+
+#partners-wrapper:before {
+	top:-50px;
+	height:800px;
+	width:100%;
 	background-image:url("../img/helsinki_edited.png");
-	background-size:1200px auto;
+	background-size:1000px auto;
 	background-repeat:no-repeat;
-	background-position:center top -140px;
-	margin-left:-86px;
-	margin-right:-86px;
-}*/
+	background-position:center top -120px;
+	content:"";
+	z-index: -1;
+	position:absolute;
+}
 #partners-block {
 	margin-top:100px;
 }
 .speakers-wrapper .speaker {
 	height:370px;
+}
+#events-bottom-region {
+	margin-top:-100px;
 }
 }

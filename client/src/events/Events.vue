@@ -27,14 +27,14 @@ We want to achieve this by discovering a different emerging technology topic eac
 </div>
 
 <div id="upcomming-events"> <!--vue.js time!-->
-<h2>Upcoming Events</h2>
+<h2 class="big">Upcoming Events</h2>
 <div class="up-events">
 
 <SmallEvent v-for="(event, index) in future" v-bind:key="event.id" v-bind:class="getEventClass(index)" v-bind:event="event"></SmallEvent>
     </div>
     </div>
 <div id="past-events"> <!--vue.js time!-->
-<h2>Past Events</h2>
+<h2 class="big">Past Events</h2>
 <div class="pt-events">
 
 <SmallEvent v-for="(event, index) in past" :key="event.id" v-bind:class="getEventClass(index)" v-bind:event="event"></SmallEvent>
@@ -43,8 +43,9 @@ We want to achieve this by discovering a different emerging technology topic eac
     </div>
     </div>
     </div>
+<div id="events-bottom-region">	
 <BottomRegion></BottomRegion>
-
+</div>
 </div>
 </template>
 
@@ -73,8 +74,6 @@ We want to achieve this by discovering a different emerging technology topic eac
             // `this` points to the vm instance
             this.$http.get('/heltech/api/events/past/9').then(function(response) {
                 if (response.ok) {
-                    console.log('/heltech/api/events/past/9');
-                    console.log(response.data);
                     this.past = response.data;
                 } else {
                     this.past = [];
@@ -85,21 +84,16 @@ We want to achieve this by discovering a different emerging technology topic eac
             });
             this.$http.get('/heltech/api/events/future/9').then(function(response) {
                 if (response.ok) {
-                    console.log('/heltech/api/events/future/9');
-                    console.log(response.data);
                     this.future = response.data;
                 } else {
                     this.future = [];
                 }
             }).catch(function(err) {
-                console.log('/heltech/api/events/future/9 unavailable' + err);
                 this.future = [];
             });
         },
         methods: {
             getEventClass: function(id) {
-                console.log(id);
-                console.log("events-column event-" + (id+1))
                 return "events-column event-" + (id+1);
             }
         }

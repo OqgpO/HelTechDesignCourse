@@ -43,15 +43,15 @@
 <div class="event second-line">
 <div class="column-one">
 <h5>Date</h5>
-<p>November 6th</p>
+<p>{{event.start_time | getDate }}</p>
 </div>
 <div class="column-two">
 <h5>Time</h5>
-<p>18:00</p>
+<p>{{event.start_time | getTime }}</p>
 </div>
 <div class="column-three">
 <h5>Location</h5>
-<p>Valkoinen Sali</p>
+<p>{{event.place.name}},{{event.place.streetaddr}} </p>
 </div>
 </div>
 
