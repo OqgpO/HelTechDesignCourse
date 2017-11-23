@@ -583,7 +583,7 @@ a.mail-button {
     line-height: 0;
 }
 
-.page-events .image-wrapper {
+#page-events .image-wrapper {
 	height:180px;
 }
 
@@ -667,7 +667,7 @@ a.meetup-button {
 	height: 200px;
 }
 
-.page-events .image-wrapper {
+#page-events .image-wrapper {
 	height:200px;
 }
 }
@@ -697,7 +697,7 @@ a.meetup-button {
 	height: 250px;
 }
 
-.page-events .image-wrapper a{
+#page-events .image-wrapper a{
 	height:250px;
 }
 
