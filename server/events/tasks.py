@@ -87,11 +87,14 @@ class FB(CronJobBase):
 
             # fill the speakers
             if ew.parse_speakers:
+                if e.start_time <
                 for speaker in ep.speakers:
                     sobj = None
                     org = None
                     try:
-                        sobj = Speaker.objects.get(full_name = speaker['name'])
+                        sobj = Speaker.objects.get(full_name = speaker['name'],
+                                                   organisation__name = speaker['org'],
+                                                   event__title = e.title)
                     except ObjectDoesNotExist:
                         sobj = Speaker()
 
