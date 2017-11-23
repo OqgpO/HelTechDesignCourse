@@ -391,8 +391,8 @@ a.mail-button {
 	color: #fff;
 }
 
-#upcomming-events h2:first-child,
-#past-events h2:first-child {
+#upcomming-events h2:first-of-type,
+#past-events h2:first-of-type {
 	font-size:30px;
 }
 
