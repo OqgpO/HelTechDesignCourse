@@ -172,6 +172,10 @@ ul.nice-menu li {
 	padding: 15px 10px;
 }
 
+.nice-menu a:hover {
+	text-decoration:underline;
+}
+
 
 .page {
 	padding:10px 0;
