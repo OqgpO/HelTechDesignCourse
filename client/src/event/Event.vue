@@ -51,7 +51,7 @@
 </div>
 <div class="column-three">
 <h5>Location</h5>
-<p>{{event.place.name}}</p>
+<p>{{event.place.name}},{{event.place.streetaddr}} </p>
 </div>
 </div>
 
