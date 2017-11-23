@@ -968,9 +968,7 @@ a.meetup-button {
 #webform-contact .form.second {
 	max-width:500px;
 }
-/*#top-block {
-	height:550px;
-}*/
+
 .speakers-partners-block,
 #desc-block {
 	max-width:1000px;
@@ -1009,9 +1007,7 @@ a.meetup-button {
 	width:30%;
 	margin-right:5%;
 }
-.events-title {
-    height: auto;
-}
+
 #events-block,
 #webform-contact {
 	background-color:transparent;
