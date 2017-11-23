@@ -72,17 +72,16 @@ class FB(CronJobBase):
             e.punchline=ep.punchline
             
             #add the place
-            if ep.place and ep.addr:
-                try:
-                    p = Place.objects.get(name=ep.place)
-                except ObjectDoesNotExist:
-                    p = Place()
-                    
-                p.name=ep.place
-                p.streetaddr=ep.place
+            try:
+                p = Place.objects.get(name=ep.place)
+            except ObjectDoesNotExist:
+                p = Place()
                 
-                p.save()
-                e.place=p
+            p.name=ep.place
+            p.streetaddr=ep.addr
+            
+            p.save()
+            e.place=p
 
             e.save() #that's all for now
 
@@ -90,15 +89,9 @@ class FB(CronJobBase):
             if ew.parse_speakers:
                 edt = parser.parse(e.start_time)
                 now = datetime.datetime.now(edt.tzinfo)
-                print edt
-                print now
-                print ep.speakers
                 
                 if edt >= now or (not Speaker.objects.filter(event__eid=e.eid).exists())
                     (count, thedict) = speakers = Speaker.objects.filter(event__eid=e.eid).delete()
-                    print "should update"
-                    print count
-                    print thedict
                     logger.debug("deleted: " + str(count) + " speakers, details: " + str(thedict))
                     for speaker in ep.speakers:
                         org = None
