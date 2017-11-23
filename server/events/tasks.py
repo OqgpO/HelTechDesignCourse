@@ -90,7 +90,7 @@ class FB(CronJobBase):
                 edt = parser.parse(e.start_time)
                 now = datetime.datetime.now(edt.tzinfo)
                 
-                if edt >= now or (not Speaker.objects.filter(event__eid=e.eid).exists())
+                if edt >= now or (not Speaker.objects.filter(event__eid=e.eid).exists()):
                     (count, thedict) = speakers = Speaker.objects.filter(event__eid=e.eid).delete()
                     logger.debug("deleted: " + str(count) + " speakers, details: " + str(thedict))
                     for speaker in ep.speakers:
