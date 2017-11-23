@@ -651,6 +651,24 @@ a.meetup-button {
 	height: 200px;
 }
 
+.speaker:nth-child(2n+1){
+	margin-right:0;
+}
+
+.speakers-wrapper .speaker {
+	max-width:none;
+	width:23.5%;
+	float:left;
+	margin-right:2%;
+	height:350px;
+}
+
+.speaker:nth-child(4n){
+	margin-right:0;
+}
+.speakers-wrapper {
+	margin-bottom:0;
+}
 }
 
 @media (min-width: 900px) {
@@ -838,24 +856,6 @@ a.meetup-button {
 	align-items:center;
 }
 
-.speaker:nth-child(2n+1){
-	margin-right:0;
-}
-
-.speakers-wrapper .speaker {
-	max-width:none;
-	width:23.5%;
-	float:left;
-	margin-right:2%;
-	height:350px;
-}
-
-.speaker:nth-child(4n){
-	margin-right:0;
-}
-.speakers-wrapper {
-	margin-bottom:0;
-}
 #partners-block {
 	margin-top:60px;
 }
