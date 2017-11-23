@@ -31,6 +31,11 @@ class Speaker(models.Model):
     )
     role = models.CharField(max_length=2, blank=True, choices=ROLE_CHOICES)
 
+    def get_organisation_name(self, obj):
+        return obj.organisation.name or ""
+    get_name.admin_order_field  = 'organisation'  #Allows column order sorting
+    get_name.short_description = 'Organisation Name'  #Renames column head
+
     def __unicode__(self):
         if not self.full_name:
             return self.organisation.name;
