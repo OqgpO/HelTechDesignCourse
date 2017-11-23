@@ -73,8 +73,6 @@ We want to achieve this by discovering a different emerging technology topic eac
             // `this` points to the vm instance
             this.$http.get('/heltech/api/events/past/9').then(function(response) {
                 if (response.ok) {
-                    console.log('/heltech/api/events/past/9');
-                    console.log(response.data);
                     this.past = response.data;
                 } else {
                     this.past = [];
@@ -85,21 +83,16 @@ We want to achieve this by discovering a different emerging technology topic eac
             });
             this.$http.get('/heltech/api/events/future/9').then(function(response) {
                 if (response.ok) {
-                    console.log('/heltech/api/events/future/9');
-                    console.log(response.data);
                     this.future = response.data;
                 } else {
                     this.future = [];
                 }
             }).catch(function(err) {
-                console.log('/heltech/api/events/future/9 unavailable' + err);
                 this.future = [];
             });
         },
         methods: {
             getEventClass: function(id) {
-                console.log(id);
-                console.log("events-column event-" + (id+1))
                 return "events-column event-" + (id+1);
             }
         }
