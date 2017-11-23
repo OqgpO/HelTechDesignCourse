@@ -27,14 +27,14 @@ We want to achieve this by discovering a different emerging technology topic eac
 </div>
 
 <div id="upcomming-events"> <!--vue.js time!-->
-<h2>Upcoming Events</h2>
+<h2 class="big">Upcoming Events</h2>
 <div class="up-events">
 
 <SmallEvent v-for="(event, index) in future" v-bind:key="event.id" v-bind:class="getEventClass(index)" v-bind:event="event"></SmallEvent>
     </div>
     </div>
 <div id="past-events"> <!--vue.js time!-->
-<h2>Past Events</h2>
+<h2 class="big">Past Events</h2>
 <div class="pt-events">
 
 <SmallEvent v-for="(event, index) in past" :key="event.id" v-bind:class="getEventClass(index)" v-bind:event="event"></SmallEvent>

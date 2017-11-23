@@ -393,8 +393,8 @@ a.mail-button {
 	color: #fff;
 }
 
-#upcomming-events h2:first-of-type,
-#past-events h2:first-of-type {
+#upcomming-events .big,
+#past-events .big {
 	font-size:30px;
 }
 
