@@ -13,6 +13,9 @@ class Organisation(models.Model):
     logo = models.ImageField(upload_to='organisation_logos/', blank=True)
     is_partner = models.BooleanField(default=False)
 
+    def __unicode__(self):
+        return self.name
+    
 class Speaker(models.Model):
     full_name = models.CharField(max_length=200, blank=True)
     title = models.CharField(max_length=400, blank=True);

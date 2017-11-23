@@ -4,6 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from events.models import EventWorker, Event, Place
 from contacts.models import Speaker, Organisation
 from events.parsers import EventParser
+import datetime
 
 
 import facebook
@@ -87,16 +88,14 @@ class FB(CronJobBase):
 
             # fill the speakers
             if ew.parse_speakers:
-                if e.start_time <
-                for speaker in ep.speakers:
-                    sobj = None
-                    org = None
-                    try:
-                        sobj = Speaker.objects.get(full_name = speaker['name'],
-                                                   organisation__name = speaker['org'],
-                                                   event__title = e.title)
-                    except ObjectDoesNotExist:
-                        sobj = Speaker()
+                now = datetime.datetime.now()
+                if e.start_time >= now:
+                    (count, dict) = speakers = Speaker.objects.filter(event__eid=e.eid).delete()
+                    logger.debug("deleted: " + str(count), " speakers, details: " + str(dict))
+                    for speaker in ep.speakers:
+                        sobj = None
+                        org = None
+                    sobj = Speaker()
 
                     if speaker['org']:
                         try:
