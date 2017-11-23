@@ -593,12 +593,12 @@ a.mail-button {
 	object-fit: cover;
 	flex: 1;
 	overflow: hidden;
-	height: 180px;
+	height: 150px;
     line-height: 0;
 }
 
 #page-events .image-wrapper a{
-	height:180px;
+	height:150px;
 }
 
 .events-column {
@@ -678,11 +678,11 @@ a.meetup-button {
 .pt-events .image-wrapper img,
 .up-events .image-wrapper img,
 .other-event .image-wrapper img{
-	height: 200px;
+	height: 160px;
 }
 
 #page-events .image-wrapper a{
-	height:200px;
+	height:160px;
 }
 }
 
@@ -708,11 +708,11 @@ a.meetup-button {
 .pt-events .image-wrapper img,
 .up-events .image-wrapper img,
 .other-event .image-wrapper img{
-	height: 250px;
+	height: 200px;
 }
 
 #page-events .image-wrapper a{
-	height:250px;
+	height:200px;
 }
 
 }
@@ -882,6 +882,15 @@ a.meetup-button {
 #page-events .main-event-column {
 	margin-top:0;
 }
+.pt-events .image-wrapper img,
+.up-events .image-wrapper img,
+.other-event .image-wrapper img{
+	height: 220px;
+}
+
+#page-events .image-wrapper a{
+	height:220px;
+}
 }
 
 @media (min-width: 1100px) {
@@ -946,6 +955,15 @@ a.meetup-button {
 }
 .speakers-wrapper {
 	margin-top:70px;
+}
+.pt-events .image-wrapper img,
+.up-events .image-wrapper img,
+.other-event .image-wrapper img{
+	height: 180px;
+}
+
+#page-events .image-wrapper a{
+	height:180px;
 }
 }
 
@@ -1043,7 +1061,7 @@ a.meetup-button {
 	background-size:1200px auto;
 	background-repeat:no-repeat;
 	background-position:center top 0;
-	padding:110px 0;
+	padding:100px 0;
 	margin-left:-86px;
 	margin-right:-86px;
 	height:1000px;
