@@ -43,8 +43,9 @@ We want to achieve this by discovering a different emerging technology topic eac
     </div>
     </div>
     </div>
+<div id="events-bottom-region">	
 <BottomRegion></BottomRegion>
-
+</div>
 </div>
 </template>
 

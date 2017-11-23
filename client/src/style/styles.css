@@ -910,7 +910,7 @@ a.meetup-button {
 	margin-right:0;
 }
 #page-events .events-column {
-	height:500px;
+	height:420px;
 }
 #page-events .pt-events,
 #page-events .up-events {
@@ -1088,5 +1088,8 @@ a.meetup-button {
 }
 .speakers-wrapper .speaker {
 	height:370px;
+}
+#events-bottom-region {
+	margin-top:-100px;
 }
 }
