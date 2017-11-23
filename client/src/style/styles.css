@@ -583,7 +583,7 @@ a.mail-button {
     line-height: 0;
 }
 
-#page-events .image-wrapper {
+#page-events .image-wrapper a{
 	height:180px;
 }
 
@@ -701,29 +701,6 @@ a.meetup-button {
 	height:250px;
 }
 
-
-.events-column:nth-child(odd) {
-	margin-right:0;
-}
-
-#past-events .events-column,
-#upcomming-events .events-column {
-	width:32%;
-	float:left;
-	margin-right:2%;
-}
-
-#past-events .events-column:nth-child(3n),
-#upcomming-events .events-column:nth-child(3n) {
-	margin-right:0;
-}
-.events-column {
-	height:540px;
-}
-.pt-events,
-.up-events {
-	margin-top:50px;
-}
 }
 
 @media (min-width: 1000px) {
@@ -894,6 +871,28 @@ a.meetup-button {
 }
 
 @media (min-width: 1100px) {
+.events-column:nth-child(odd) {
+	margin-right:0;
+}
+
+#past-events .events-column,
+#upcomming-events .events-column {
+	width:32%;
+	float:left;
+	margin-right:2%;
+}
+
+#past-events .events-column:nth-child(3n),
+#upcomming-events .events-column:nth-child(3n) {
+	margin-right:0;
+}
+.events-column {
+	height:540px;
+}
+.pt-events,
+.up-events {
+	margin-top:50px;
+}
 
 .desc-block.wrapper {
 	position:relative;
