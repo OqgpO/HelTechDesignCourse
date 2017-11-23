@@ -395,7 +395,7 @@ a.mail-button {
 
 #upcomming-events .big,
 #past-events .big {
-	font-size:30px;
+	font-size:34px;
 }
 
 .main-event-column {
@@ -905,7 +905,7 @@ a.meetup-button {
 }
 #page-events .pt-events,
 #page-events .up-events {
-	margin-top:50px;
+	margin-top:30px;
 }
 
 .desc-block.wrapper {
@@ -1005,11 +1005,11 @@ a.meetup-button {
 	max-width:1000px;
 	margin:0 auto;
 }
-.main-event.events-block-1 {
+#page-main .main-event.events-block-1 {
 	width:60%;
 	margin-right:8%;
 }
-.other-event.events-block-2 {
+#page-main .other-event.events-block-2 {
 	width:32%;
 }
 .wrapper-events-block {
