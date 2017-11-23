@@ -805,34 +805,34 @@ a.meetup-button {
 	padding:40px;
 	
 }	
-.main-event.events-block-1,
-.other-event.events-block-2 {
+#page-main  .main-event.events-block-1,
+#page-main  .other-event.events-block-2 {
 	float:left;
 }
-.main-event.events-block-1 {
+#page-main  .main-event.events-block-1 {
 	width:59%;
 	margin-right:5%;
 }
 .other-event.events-block-2 {
 	width:36%;
 }
-.main-event-column.event-1, 
-.main-event-column.event-2 {
+#page-main  .main-event-column.event-1, 
+#page-main  .main-event-column.event-2 {
     float: none;
     width: 100%;
 }
-.main-event-column.event-1 {
+#page-main  .main-event-column.event-1 {
 	margin-right:0;
 }
 
 
-.main-event-column.event-1{
+#page-main  .main-event-column.event-1{
     margin-top: 0;
 }
 #events-block .events-title {
     height: auto;
 }
-.other-event .image-wrapper {
+#page-main  .other-event .image-wrapper {
 	margin-top:0;
 }
 .wrapper-events-block {
