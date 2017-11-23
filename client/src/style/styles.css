@@ -676,9 +676,12 @@ a.meetup-button {
 	margin-bottom:120px;
 }
 .pt-events .image-wrapper img,
-.up-events .image-wrapper img,
-.other-event .image-wrapper img{
+.up-events .image-wrapper img {
 	height: 160px;
+}
+
+.other-event .image-wrapper img{
+	height: 140px;
 }
 
 #page-events .image-wrapper a{
@@ -706,9 +709,12 @@ a.meetup-button {
 }
 
 .pt-events .image-wrapper img,
-.up-events .image-wrapper img,
-.other-event .image-wrapper img{
+.up-events .image-wrapper img {
 	height: 200px;
+}
+
+.other-event .image-wrapper img{
+	height: 180px;
 }
 
 #page-events .image-wrapper a{
@@ -883,9 +889,12 @@ a.meetup-button {
 	margin-top:0;
 }
 .pt-events .image-wrapper img,
-.up-events .image-wrapper img,
-.other-event .image-wrapper img{
+.up-events .image-wrapper img {
 	height: 220px;
+}
+
+.other-event .image-wrapper img{
+	height: 145px;
 }
 
 #page-events .image-wrapper a{
@@ -957,9 +966,12 @@ a.meetup-button {
 	margin-top:70px;
 }
 .pt-events .image-wrapper img,
-.up-events .image-wrapper img,
-.other-event .image-wrapper img{
+.up-events .image-wrapper img {
 	height: 180px;
+}
+
+.other-event .image-wrapper img{
+	height: 160px;
 }
 
 #page-events .image-wrapper a{
@@ -972,7 +984,9 @@ a.meetup-button {
 .events-text {
 	max-width:800px;
 }
-
+.main-event-column {
+    margin-top: 50px;
+}
 .desc-block.wrapper:before {
 	content:"";
 	width:120px;
