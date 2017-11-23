@@ -583,6 +583,10 @@ a.mail-button {
     line-height: 0;
 }
 
+.page-events .image-wrapper {
+	height:180px;
+}
+
 .events-column {
 	width:48%;
 	float:left;
@@ -663,6 +667,9 @@ a.meetup-button {
 	height: 200px;
 }
 
+.page-events .image-wrapper {
+	height:200px;
+}
 }
 
 @media (min-width: 900px) {
@@ -689,6 +696,11 @@ a.meetup-button {
 .other-event .image-wrapper img{
 	height: 250px;
 }
+
+.page-events .image-wrapper a{
+	height:250px;
+}
+
 
 .events-column:nth-child(odd) {
 	margin-right:0;
