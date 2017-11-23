@@ -92,28 +92,27 @@ class FB(CronJobBase):
                 now = datetime.datetime.now(edt.tzinfo)
                 if edt >= now:
                     (count, dict) = speakers = Speaker.objects.filter(event__eid=e.eid).delete()
-                    logger.debug("deleted: " + str(count), " speakers, details: " + str(dict))
+                    logger.debug("deleted: " + str(count) + " speakers, details: " + str(dict))
                     for speaker in ep.speakers:
-                        sobj = None
                         org = None
-                    sobj = Speaker()
+                        sobj = Speaker()
 
-                    if speaker['org']:
-                        try:
-                            org = Organisation.objects.get(name=speaker['org'])
-                        except ObjectDoesNotExist:
-                            org = Organisation()
+                        if speaker['org']:
+                            try:
+                                org = Organisation.objects.get(name=speaker['org'])
+                            except ObjectDoesNotExist:
+                                org = Organisation()
                              
-                    if speaker['org']:
-                        org.name=speaker['org']
-                        org.save()
+
+                            org.name=speaker['org']
+                            org.save()
                     
-                    speaker = Speaker(full_name=speaker['name'],
-                                      title=speaker['title'],
-                                      role=speaker['role'],
-                                      organisation=org,
-                                      event=e)
-                    speaker.save()
+                        speaker = Speaker(full_name=speaker['name'],
+                                          title=speaker['title'],
+                                          role=speaker['role'],
+                                          organisation=org,
+                                          event=e)
+                        speaker.save()
                         
                    
             
