@@ -42,7 +42,10 @@ class EventParser:
             else:
                 if line.isupper():
                     self.punchline = line.strip()
-                    ret.replace(self.punchline, "", 1)
+                    ret=ret.replace(self.punchline, "", 1)
+                    break                
+                else:
+                    self.punchline = ""
                     break
 
         return ret
@@ -74,9 +77,12 @@ class EventParser:
             elif line != '':
                 if re.search('keynote', curr_role, re.IGNORECASE): #person
                     person_line = line.split(',') #<name>,<title>,<org> for now!
-                    if len(person_line) != 3:
-                        continue # do not even try special cases..
-                    else:
+                    if len(person_line) == 2:
+                        speakers.append( {'role':'PA', 
+                                          'name':person_line[0].strip(),
+                                          'title':person_line[1].strip(),
+                                          'org': ""} )
+                    elif len(person_line) == 3:
                         speakers.append( {'role':'KN', 
                                           'name':person_line[0].strip(),
                                           'title':person_line[1].strip(),
