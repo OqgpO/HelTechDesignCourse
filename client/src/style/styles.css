@@ -424,6 +424,10 @@ a.mail-button {
 	text-align:center;
 }
 
+.event.image-wrapper {
+	text-align:center;
+}
+
 .image-wrapper img{
 	max-width:100%;
 	width:auto;
