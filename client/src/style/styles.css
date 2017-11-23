@@ -153,7 +153,9 @@ ul.nice-menu:after,
 #past-events:after,
 #upcomming-events:after,
 .partners-logos .image-wrapper:after,
-.speakers-wrapper:after {
+.speakers-wrapper:after,
+.up-events:after,
+.pt-events:after {
 	content: " ";
     display: block;
     height: 0;
@@ -561,11 +563,14 @@ a.mail-button {
 	margin-right:4%;
 }
 
-.events-title {
+#page-main .events-title {
 	height:65px;
+	overflow:hidden;
 }
 
-#page-main .events-title {
+
+#page-events .events-title {
+	height:100px;
 	overflow:hidden;
 }
 
@@ -896,7 +901,7 @@ a.meetup-button {
 	margin-right:0;
 }
 #page-events .events-column {
-	height:540px;
+	height:500px;
 }
 #page-events .pt-events,
 #page-events .up-events {
