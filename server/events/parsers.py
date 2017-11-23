@@ -6,18 +6,18 @@ class EventParser:
         self.parse_speakers = parse_speakers
 
     def parse(self):
-        self.description = self.parseDescription(self.event['description'])
-        self.start_time = self.event['start_time']
+        self.description = self.parseDescription(self.event['description']).strip()
+        self.start_time = self.event['start_time'].strip()
         self.eid = self.event['id']
-        self.title = self.parseName(self.event['name'])
-        self.programme = self.parseProgram(self.event['description'])
+        self.title = self.parseName(self.event['name']).strip()
+        self.programme = self.parseProgram(self.event['description']).strip()
 
         if self.parse_speakers:
-            self.speakers = self.parseSpeakers(self.programme)
+            self.speakers = self.parseSpeakers(self.programme).strip()
 
         try:
-            self.place = self.event['place']['name']
-            self.addr = self.event['place']['location']['street']
+            self.place = self.event['place']['name'].strip()
+            self.addr = self.event['place']['location']['street'].strip()
         except KeyError:
             self.place = ""
             self.addr = ""
@@ -41,8 +41,8 @@ class EventParser:
                 continue
             else:
                 if line.isupper():
-                    self.punchline = line
-                    ret.replace(line, "", 1)
+                    self.punchline = line.strip()
+                    ret.replace(self.punchline, "", 1)
                     break
 
         return ret
@@ -51,13 +51,13 @@ class EventParser:
     def parseName(self, descr):
         name = descr.split('-')  ## todo: always in the same format?
         if len(name) != 2:
-            return name[0]
+            return name[0].strip()
         else:
-            return name[1]
+            return name[1].strip()
         
     def parseProgram(self, descr):
         try:
-            ret = descr.split('PROGRAM:')[1] 
+            ret = descr.split('PROGRAM:')[1].strip() 
         except KeyError:
             ret = "" # needs to be hand filled
 
@@ -78,26 +78,26 @@ class EventParser:
                         continue # do not even try special cases..
                     else:
                         speakers.append( {'role':'KN', 
-                                          'name':person_line[0],
-                                          'title':person_line[1],
-                                          'org':person_line[2] } )
+                                          'name':person_line[0].strip(),
+                                          'title':person_line[1].strip(),
+                                          'org':person_line[2].strip() } )
                 elif re.search('panel', curr_role, re.IGNORECASE): #persons
                     person_line = line.split(',') #<name>,<title>,<org> for now!
                     if len(person_line) == 2:
                         speakers.append( {'role':'PA', 
-                                          'name':person_line[0],
-                                          'title':person_line[1],
+                                          'name':person_line[0].strip(),
+                                          'title':person_line[1].strip(),
                                           'org': ""} )
                     elif len(person_line) == 3:
                         speakers.append( {'role':'PA', 
-                                          'name':person_line[0],
-                                          'title':person_line[1],
-                                          'org':person_line[2] } )
+                                          'name':person_line[0].strip(),
+                                          'title':person_line[1].strip(),
+                                          'org':person_line[2].strip() } )
                 elif (re.search('demo', curr_role, re.IGNORECASE) or 
                       re.search('pitch', curr_role, re.IGNORECASE)): #Organisations only
                     speakers.append( {'role':'DE',
                                       'name':"",
                                       'title':"",
-                                      'org':line })
+                                      'org':line.strip() })
 
         return speakers

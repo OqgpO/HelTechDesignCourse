@@ -6,7 +6,7 @@ from .models import Speaker, Organisation
 
 class SpeakerAdmin(admin.ModelAdmin):
     #fields = ['full_name', 'introduction', 'portrait', 'organisation']
-    list_display = ['full_name']
+    list_display = ['id', 'full_name']
 
 class OrganisationAdmin(admin.ModelAdmin):
     #fields = ['name', 'site_address', 'logo']
