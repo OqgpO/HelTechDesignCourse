@@ -1020,7 +1020,7 @@ a.meetup-button {
 	margin-right:-86px;
 	height:1000px;
 }
-/*.speakers-partners-block:before {
+#partners-wrapper {
 	top: 85px;
 	background-image:url("../img/helsinki_edited.png");
 	background-size:1200px auto;
@@ -1028,7 +1028,7 @@ a.meetup-button {
 	background-position:center top -140px;
 	margin-left:-86px;
 	margin-right:-86px;
-}*/
+}
 #partners-block {
 	margin-top:100px;
 }

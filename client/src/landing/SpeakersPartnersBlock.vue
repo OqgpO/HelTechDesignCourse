@@ -94,6 +94,7 @@
 </div>
 </div>
 
+<div id="partners-wrapper">
 <div id="partners-block" class="landing">
 <h1>Our Partners</h1>
 <div class="partners-logos">
@@ -109,6 +110,8 @@
 </div>
 </div>
 <p> Do you want to enable the Finnish Tech scene with us? Contact us at teodora.berg@aaltoes.com</p>
+</div>
+
 </div>
 
 </div>
