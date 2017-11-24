@@ -21,6 +21,7 @@
 </div>
 <div class="event description">
 <h1>{{event.title}}</h1>
+<h5>{{event.start_time}}</h5>
 <h5>{{event.punchline}}</h5>
 <p>{{event.description}}</p>
 </div>
@@ -51,11 +52,11 @@
 </div>
 <div class="column-three">
 <h5>Location</h5>
-<p>{{event.place.name}},{{event.place.streetaddr}} </p>
+<p>{{event.place.name}},<br/> {{event.place.streetaddr}} </p>
 </div>
 </div>
 
-<a v-if="past" class="black-button event-button" href="/" title="Tickets">Get tickets</a>
+<a v-if="upcoming" class="black-button event-button" href="/" title="Tickets">Get tickets</a>
 </div>
 </div>
 </div>
