@@ -17,7 +17,7 @@
 <div id="page-about" class="page">
 <div id="main">
 <div id="content">
-<h1>HELSINIKI'S MEETING POINT <br/>FOR TECH ENTHUSIASTS</h1>
+<h1>HELSINKI'S MEETING POINT <br/>FOR TECH ENTHUSIASTS</h1>
 <div id="our-story" class="about center-block">
 <p>HEL Tech Meetup is a monthly event with the purpose to educate, inspire and connect tech enthusiasts in Helsinki area and provide
 opportunities for the Helsinki tech community and ecosystem to leverage their capabilities and results.</p>
