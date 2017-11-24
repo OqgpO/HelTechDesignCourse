@@ -54,7 +54,7 @@ class FB(CronJobBase):
             e.attending_count = ac['attending_count'] or 0
                     
             # fetch the cover photo
-            cover = graph.get_object(id=e.eid, fields=['cover'])
+            cover = graph.get_object(id=event['id'], fields=['cover'])
                 
             try:
                 e.cover_uri = cover['cover']['source']
