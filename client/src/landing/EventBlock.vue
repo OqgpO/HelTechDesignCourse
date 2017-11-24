@@ -50,7 +50,6 @@
             });
             this.$http.get('/heltech/api/events/current').then(function(response) {
                 if (response.ok) {
-                    console.log("fetched current: " + response.data);
                     this.current = response.data;
                 } else {
                     this.current = {};
@@ -72,10 +71,8 @@
             eventUri: function() {
                 var ret = "event/"
                 if (this.current) {
-                    console.log("eventUri(): this.current exists ret: ", ret)
                     return ret + this.current.id
                 } else {
-                    console.log("eventUri(): this current does not exist ret: ", ret + this.current.id)
                     return ret
                 }
             },

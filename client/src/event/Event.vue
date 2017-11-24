@@ -96,17 +96,15 @@
             this.eventId = this.$route.params.id
             // `this` points to the vm instance
             this.$http.get('/heltech/api/events/' + this.eventId).then(function(response) {
-                console.log(response.data);
                 this.event = response.data;
                 var e_time = new Date(this.event.start_time)
-                this.upcoming = this.event.start_time > Date.now()
+                this.upcoming = e_time > Date.now()
             }).catch(function(err) {
                 console.log('/heltech/api/events/' + this.eventId + ' unavailable');
                 this.event = {}
             });
 
             this.$http.get('/heltech/api/events/' + this.eventId + "/keynote").then(function(response) {
-                console.log(response.data);
                 this.keynote = response.data;
             }).catch(function(err) {
                 console.log('/heltech/api/events/' + this.eventId + '/keynote unavailable');
@@ -114,7 +112,6 @@
             });
 
             this.$http.get('/heltech/api/events/' + this.eventId + "/panel").then(function(response) {
-                console.log(response.data);
                 this.panel = response.data;
             }).catch(function(err) {
                 console.log('/heltech/api/events/' + this.eventId + '/panel unavailable');
@@ -123,7 +120,6 @@
 
 
             this.$http.get('/heltech/api/events/' + this.eventId + "/demo").then(function(response) {
-                console.log(response.data);
                 this.demo = response.data;
             }).catch(function(err) {
                 console.log('/heltech/api/events/' + this.eventId + '/demo unavailable');

@@ -28,7 +28,6 @@
        methods: {
            getAbs: function(link) {
                var result = link;
-               console.log('getting path of: ' + link);
                return result;
            }
     },
