@@ -76,29 +76,51 @@ class EventParser:
                 curr_role = line[line.index(" ")+1:]
             elif line != '':
                 if re.search('keynote', curr_role, re.IGNORECASE): #person
-                    person_line = line.split(',') #<name>,<title>,<org> for now!
+                    person_line = line.split(',') #<name>,<title>,<org> for now!                   
+
                     if len(person_line) == 2:
-                        speakers.append( {'role':'KN', 
-                                          'name':person_line[0].strip(),
-                                          'title':person_line[1].strip(),
-                                          'org': ""} )
+                        if len(person_line[0]) < 30: #try to control the wild texts
+                            speakers.append( {'role':'KN', 
+                                              'name':person_line[0].strip(),
+                                              'title':person_line[1].strip(),
+                                              'org': ""} )
                     elif len(person_line) == 3:
                         speakers.append( {'role':'KN', 
                                           'name':person_line[0].strip(),
                                           'title':person_line[1].strip(),
                                           'org':person_line[2].strip() } )
+                    elif (len(person_line)==1 and 
+                          person_line[0].find('(') >= 0  and 
+                          person_line[0].find(')') >= 0):   # notation for <person>(org)
+                        person_line = line.split('(')
+                        speakers.append( {'role':'KN', 
+                                          'name':person_line[0].strip(),
+                                          'org':person_line[1].strip().replace(')','',1) } )
+                        
+
                 elif re.search('panel', curr_role, re.IGNORECASE): #persons
                     person_line = line.split(',') #<name>,<title>,<org> for now!
                     if len(person_line) == 2:
-                        speakers.append( {'role':'PA', 
-                                          'name':person_line[0].strip(),
-                                          'title':person_line[1].strip(),
-                                          'org': ""} )
+                        if len(person_line[0]) < 30:  #try to control the wild texts
+                            speakers.append( {'role':'PA', 
+                                              'name':person_line[0].strip(),
+                                              'title':person_line[1].strip(),
+                                              'org': ""} )
                     elif len(person_line) == 3:
                         speakers.append( {'role':'PA', 
                                           'name':person_line[0].strip(),
                                           'title':person_line[1].strip(),
                                           'org':person_line[2].strip() } )
+                    elif (len(person_line)==1 and 
+                          person_line[0].find('(') >= 0  and 
+                          person_line[0].find(')') >= 0):   # notation for <person>(org)
+                        person_line = line.split('(')
+                        speakers.append( {'role':'PA', 
+                                          'name':person_line[0].strip(),
+                                          'org':person_line[1].strip().replace(')','',1) } )
+
+
+
                 elif (re.search('demo', curr_role, re.IGNORECASE) or 
                       re.search('pitch', curr_role, re.IGNORECASE)): #Organisations only
                     speakers.append( {'role':'DE',
