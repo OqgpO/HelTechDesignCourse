@@ -29,7 +29,7 @@ def authorize(request):
     try:
         app = FBApplication.objects.all()[0] # only one for now..
     except:
-        return return HttpResponse('Cannot authorize, a facebook application details need to be created through the admin site.')
+        return HttpResponse('Cannot authorize, a facebook application details need to be created through the admin site.')
     return render( request, "login.html", context={'app':app})
 
 
@@ -43,7 +43,10 @@ def authorize_page(request):
 def elevate_page_token(request):
     logger.info('elevate_page_token')
     if request.method == 'POST':
-        app = FBApplication.objects.all()[0] # only one for now..
+        try:
+            app = FBApplication.objects.all()[0] # only one for now..
+        except:
+            return HttpResponse('You should not be here..')
 
         form = TokenForm(request.POST)
         if form.is_valid():
