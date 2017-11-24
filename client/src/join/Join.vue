@@ -28,14 +28,14 @@
 </div>
 </div>
 
-<BottomRegion></BottomRegion>
+<JoinBottomRegion></JoinBottomRegion>
 
 </div>
 </template>
 
 
 <script>
-    import BottomRegion from '../landing/BottomRegion.vue'
+    import JoinBottomRegion from './JoinBottomRegion.vue'
     import Navigation from '../common/Navigation.vue'
 
     export default {
