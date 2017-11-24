@@ -12,8 +12,10 @@ import facebook
 import logging
 logger = logging.getLogger(__name__)
 
+## class for the django-cron. do method is ran every two hours
 class FB(CronJobBase):
     RUN_EVERY_MINS = 120 # every 2 hours
+    DJANGO_CRON_DELETE_LOGS_OLDER_THAN = 30 #30 days of logs
 
     schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
     code = 'events.tasks.FB'    # a unique code
@@ -34,11 +36,8 @@ class FB(CronJobBase):
         
         graph = facebook.GraphAPI(access_token=ew.page_token, version="2.1")
 
-        #get the page events
-        
-        fb_events = graph.get_connections(id=ew.page_id, connection_name="events")
-        logger.debug("All events fetched, result:\n" + str(fb_events))
-        
+        #get the page events and the database events
+        fb_events = graph.get_connections(id=ew.page_id, connection_name="events")        
         db_events = Event.objects.all()
 
         for event in fb_events['data']:
