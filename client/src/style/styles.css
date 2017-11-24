@@ -252,7 +252,7 @@ a.violet-button,
 }
 
 a.violet-button:hover,
-#mc_embed_signup.form-submit:hover {
+.form-submit:hover {
     background: #200f22;
     color: #fff;
     cursor: pointer;
