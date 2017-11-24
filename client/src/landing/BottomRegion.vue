@@ -39,7 +39,7 @@
 
 <form action="https://aaltoes.us2.list-manage.com/subscribe/post?u=550be119ae30d67eafbe4201e&amp;id=f01ee7e18f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 
-    <div id="mc_embed_signup_scroll" class"wrapper">
+    <div id="mc_embed_signup_scroll" class="wrapper">
 
  <h1>Stay in touch</h1>
 <div class="wrapper-block">
