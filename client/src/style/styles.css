@@ -609,8 +609,8 @@ a.mail-button {
     .up-events .image-wrapper img,
     .other-event .image-wrapper img {
         width: 100%;
-        //object-fit: cover;
-        //flex: 1;
+        object-fit: cover;
+        flex: 1;
         overflow: hidden;
         height: 150px;
         line-height: 0;
