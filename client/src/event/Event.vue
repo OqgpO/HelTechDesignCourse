@@ -21,7 +21,6 @@
 </div>
 <div class="event description">
 <h1>{{event.title}}</h1>
-<h5>{{event.start_time}}</h5>
 <h5>{{event.punchline}}</h5>
 <p>{{event.description}}</p>
 </div>

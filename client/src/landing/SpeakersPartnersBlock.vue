@@ -6,10 +6,10 @@
 <div class="speaker speaker-1">
 
 <div class="image-wrapper">
-<img src="../img/speakers/KimmoTiikikainen.jpg" alt="Kimmo Tiikikainen">
+<img src="../img/speakers/KimmoTiikikainen.jpg" alt="Kimmo Tiilikainen">
 </div>
 <div class="speakers-title">
-<h4>Kimmo Tiikikainen</h4>
+<h4>Kimmo Tiilikainen</h4>
 </div>
 <p>Finnish Minister of Housing, Energy and the Environment </p>
 </div>
@@ -61,7 +61,7 @@
 <div class="speaker speaker-6">
 
 <div class="image-wrapper">
-<img src="../img/speakers/Ilkka_Kivimäki.jpg" alt="Ilkka Kivimäki">
+<img src="../img/speakers/Ilkka_Kivimaki.jpg" alt="Ilkka Kivimäki">
 </div>
 <div class="speakers-title">
 <h4>Ilkka Kivimäki</h4>
