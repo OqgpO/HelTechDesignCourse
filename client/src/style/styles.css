@@ -104,7 +104,8 @@ select:focus {
 }
 
 .form-textarea,
-.form-text {
+.form-text,
+#mc_embed_signup input {
     border: 3px solid #200f22;
     padding: 10px 15px;
     font-size: 12px;
