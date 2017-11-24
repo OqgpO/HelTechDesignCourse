@@ -7,6 +7,7 @@ from events.models import EventWorker, FBApplication
 from events.parsers import EventParser
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import send_mail
 import logging
 
 import urllib3.contrib.pyopenssl
@@ -23,6 +24,7 @@ logger = logging.getLogger(__name__)
 def index(request):
     return HttpResponse('Maintenance section of the heltech site, currently: <a href="authorize">Authorizing the server</a> for facebook event access is all you can do. Site administration needs to remove the token, if needed.<br> Before authorization, a Facebook application details need to have inserted via the admin site by site admin.')
 
+## page token elevation views
 @login_required
 def authorize(request):
     # get the app info
@@ -77,6 +79,10 @@ def elevate_page_token(request):
 
         return redirect('select_page', ew.name)
 
+    else:
+      	return HttpResponse('Invalid request, start from the events main page')
+
+
 @login_required
 def select_page(request, wname):
     if request.method == 'POST':
@@ -109,3 +115,4 @@ def select_page(request, wname):
         
             return render(request, "select_page.html", context={'data':thedict['data'],'name':ew.name})
         
+## view for sending contact email.

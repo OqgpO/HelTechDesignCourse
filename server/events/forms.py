@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.forms import ModelForm, CharField, HiddenInput, PasswordInput
+from django.forms import ModelForm, CharField, HiddenInput, PasswordInput, Form
 from events.models import EventWorker
 
 class TokenForm(ModelForm):
@@ -10,4 +10,4 @@ class TokenForm(ModelForm):
         fields = ['user_token']
 
 
-# 
+# form for contacting the heltech crew
