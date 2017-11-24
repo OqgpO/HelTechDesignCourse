@@ -591,17 +591,17 @@ a.mail-button {
     .pt-events .image-wrapper,
     .up-events .image-wrapper,
     .other-event .image-wrapper {
-        display: -webkit-box;
+        //display: -webkit-box;
         /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;
+        //display: -moz-box;
         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;
+        //display: -ms-flexbox;
         /* TWEENER - IE 10 */
-        display: -webkit-flex;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
+        //display: -webkit-flex;
+        //display: flex;
+        //flex-direction: row;
+        //align-items: center;
+        //justify-content: center;
         background-color: #fff;
         float: none;
     }
@@ -609,13 +609,14 @@ a.mail-button {
     .up-events .image-wrapper img,
     .other-event .image-wrapper img {
         width: 100%;
-        object-fit: cover;
-        flex: 1;
+        //object-fit: cover;
+        //flex: 1;
         overflow: hidden;
         height: 150px;
         line-height: 0;
     }
     #page-events .image-wrapper a {
+        display: block;
         height: 150px;
     }
     .events-column {
