@@ -252,7 +252,7 @@ a.violet-button,
 }
 
 a.violet-button:hover,
-#contact-form-submit:hover {
+#mc_embed_signup.form-submit:hover {
     background: #200f22;
     color: #fff;
     cursor: pointer;
@@ -533,7 +533,7 @@ a.mail-button {
         max-width: 450px;
     }
     .wrapper-contact-form-email {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     #contact-form-submit {
         margin-top: 0;
@@ -765,7 +765,7 @@ a.mail-button {
         max-width: 370px;
     }
     #webform-contact input {
-        max-width: 270px;
+        max-width: 230px;
     }
     a.fb-button {
         margin-left: 130px;
