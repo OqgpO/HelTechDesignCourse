@@ -56,7 +56,7 @@
 </div>
 </div>
 
-<a v-if="upcoming" class="black-button event-button" href="/" title="Tickets">Get tickets</a>
+<a v-if="upcoming" class="black-button event-button" href="https://holvi.com/shop/aaltoes16/section/hel-tech-meetup/" title="Tickets">Get tickets</a>
 </div>
 </div>
 </div>

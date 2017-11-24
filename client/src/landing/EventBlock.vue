@@ -10,7 +10,7 @@
 <h2><router-link v-bind:to="eventUri()">{{current.title }}</router-link></h2>
 <p>{{current.description | truncate(300) }}</p>
 <div class="button-wrapper">
-<a id="get-tickets-events" class="violet-button" href="#webform-contact" title="Get tickets">get tickets</a>
+<a id="get-tickets-events" class="violet-button" href="https://holvi.com/shop/aaltoes16/section/hel-tech-meetup/" title="Get tickets">get tickets</a>
 <router-link id="all-events" class="violet-button" to="events" title="All events">all events</router-link>
 </div>
 </div>
