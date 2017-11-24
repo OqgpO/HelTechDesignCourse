@@ -533,10 +533,7 @@ a.mail-button {
     }
     #wrapper-contact-form-email,
     #wrapper-contact-form-submit {
-        //float: left;
-        /* float: left; */
-        margin-right: 10px;
-        margin-bottom: 10px;
+        float: left;
     }
     #contact-form-submit {
         margin-top: 0;
