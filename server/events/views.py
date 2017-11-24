@@ -21,14 +21,15 @@ logger = logging.getLogger(__name__)
 
 @login_required
 def index(request):
-    return HttpResponse("Maintenance section of the heltech site")
+    return HttpResponse('Maintenance section of the heltech site, currently: <a href="authorize">Authorizing the server</a> for facebook event access is all you can do. Site administration needs to remove the token, if needed.<br> Before authorization, a Facebook application details need to have inserted via the admin site by site admin.')
 
-def login(request):
-    logger.info('login')
+@login_required
+def authorize(request):
     # get the app info
-    app = FBApplication.objects.all()[0] # only one for now..
-    
-    
+    try:
+        app = FBApplication.objects.all()[0] # only one for now..
+    except:
+        return return HttpResponse('Cannot authorize, a facebook application details need to be created through the admin site.')
     return render( request, "login.html", context={'app':app})
 
 
