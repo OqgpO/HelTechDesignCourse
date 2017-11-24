@@ -41,7 +41,7 @@
     export default {
         name: 'Join',
         components: {
-            BottomRegion,
+            JoinBottomRegion,
             Navigation,
         }
     }
