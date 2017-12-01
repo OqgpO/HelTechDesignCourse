@@ -510,6 +510,10 @@ a.mail-button {
     margin-bottom: 0;
 }
 
+.wrapper-contact-form-email {
+        margin-bottom: 10px;
+}
+
 @media (min-width: 600px) {
     #navigation {
         float: right;
@@ -532,9 +536,7 @@ a.mail-button {
     #webform-contact .wrapper-block {
         max-width: 450px;
     }
-    .wrapper-contact-form-email {
-        margin-bottom: 10px;
-    }
+
     #contact-form-submit {
         margin-top: 0;
         margin-left: 10px;
@@ -880,7 +882,7 @@ a.mail-button {
     }
     .wrapper-contact-form-email {
         margin-bottom: 0;
-        margin-right: 20px;
+        margin-right: 10px;
     }
     .wrapper-contact-form-email,
     .wrapper-contact-form-submit {
