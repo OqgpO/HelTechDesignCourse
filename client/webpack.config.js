@@ -10,7 +10,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: '/client/dist/',
+        publicPath: '/static/dist/',
         filename: 'build.js',
     },
     module: {
@@ -59,7 +59,7 @@ module.exports = {
     plugins: [
         new webpack.LoaderOptionsPlugin({
             options: {
-                ROUTER_BASE: '/client'
+                ROUTER_BASE: '/static/'
             }
         })
         ]
@@ -72,7 +72,7 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"',
-                ROUTER_BASE: '"/client"'
+                ROUTER_BASE: '"/static/"'
             }
         }),
     new webpack.optimize.UglifyJsPlugin({

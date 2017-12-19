@@ -72,17 +72,17 @@ We want to achieve this by discovering a different emerging technology topic eac
         },
         created: function() {
             // `this` points to the vm instance
-            this.$http.get('/heltech/api/events/past/9').then(function(response) {
+            this.$http.get('/api/events/past/9').then(function(response) {
                 if (response.ok) {
                     this.past = response.data;
                 } else {
                     this.past = [];
                 }
             }).catch(function(err) {
-                console.log('/heltech/api/events/past/9 unavailable\n' + err);
+                console.log('/api/events/past/9 unavailable\n' + err);
                 this.past = [];
             });
-            this.$http.get('/heltech/api/events/future/9').then(function(response) {
+            this.$http.get('/api/events/future/9').then(function(response) {
                 if (response.ok) {
                     this.future = response.data;
                 } else {

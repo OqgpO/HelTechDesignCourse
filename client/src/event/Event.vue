@@ -94,34 +94,34 @@
         created: function() {
             this.eventId = this.$route.params.id
             // `this` points to the vm instance
-            this.$http.get('/heltech/api/events/' + this.eventId).then(function(response) {
+            this.$http.get('/api/events/' + this.eventId).then(function(response) {
                 this.event = response.data;
                 var e_time = new Date(this.event.start_time)
                 this.upcoming = e_time > Date.now()
             }).catch(function(err) {
-                console.log('/heltech/api/events/' + this.eventId + ' unavailable');
+                console.log('/api/events/' + this.eventId + ' unavailable');
                 this.event = {}
             });
 
-            this.$http.get('/heltech/api/events/' + this.eventId + "/keynote").then(function(response) {
+            this.$http.get('/api/events/' + this.eventId + "/keynote").then(function(response) {
                 this.keynote = response.data;
             }).catch(function(err) {
-                console.log('/heltech/api/events/' + this.eventId + '/keynote unavailable');
+                console.log('/api/events/' + this.eventId + '/keynote unavailable');
                 this.keynote = {}
             });
 
-            this.$http.get('/heltech/api/events/' + this.eventId + "/panel").then(function(response) {
+            this.$http.get('/api/events/' + this.eventId + "/panel").then(function(response) {
                 this.panel = response.data;
             }).catch(function(err) {
-                console.log('/heltech/api/events/' + this.eventId + '/panel unavailable');
+                console.log('/api/events/' + this.eventId + '/panel unavailable');
                 this.panel = {}
             });
 
 
-            this.$http.get('/heltech/api/events/' + this.eventId + "/demo").then(function(response) {
+            this.$http.get('/api/events/' + this.eventId + "/demo").then(function(response) {
                 this.demo = response.data;
             }).catch(function(err) {
-                console.log('/heltech/api/events/' + this.eventId + '/demo unavailable');
+                console.log('/api/events/' + this.eventId + '/demo unavailable');
                 this.demo = {}
             });
         },

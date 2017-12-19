@@ -37,7 +37,7 @@
 
         created: function() {
             // `this` points to the vm instance
-            this.$http.get('/heltech/api/events/past/2').then(function(response) {
+            this.$http.get('/api/events/past/2').then(function(response) {
                 if (response.ok) {
                     console.log("fetched past/2: " + response.data);
                     this.events = response.data;
@@ -45,17 +45,17 @@
                     this.events = [];
                 }
             }).catch(function(err) {
-                console.log('/heltech/api/events/past/2 unavailable\n' + err);
+                console.log('/api/events/past/2 unavailable\n' + err);
                 this.events = [];
             });
-            this.$http.get('/heltech/api/events/current').then(function(response) {
+            this.$http.get('/api/events/current').then(function(response) {
                 if (response.ok) {
                     this.current = response.data;
                 } else {
                     this.current = {};
                 }
             }).catch(function(err) {
-                console.log('/heltech/api/events/current unavailable' + err);
+                console.log('/api/events/current unavailable' + err);
                 this.current = {};
             });
         },
