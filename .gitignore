@@ -55,6 +55,7 @@ coverage.xml
 .static_storage/
 .server/media_dev/
 local_settings.py
+.server/heltech/settings.py
 
 # Flask stuff:
 instance/
