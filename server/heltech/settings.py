@@ -92,9 +92,9 @@ WSGI_APPLICATION = 'heltech.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'heltech',
-        'USER': 'heltech_devel',
-        'PASSWORD': 'heltech',
+        'NAME': 'test',
+        'USER': 'test',
+        'PASSWORD': 'test',
         'HOST': 'localhost',
         'PORT': ''
     }
