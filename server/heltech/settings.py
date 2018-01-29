@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Django settings for heltech project.
 
@@ -112,6 +113,7 @@ DATABASES = {
 #AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 #AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
 
+LOGIN_URL='/admin/login/'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

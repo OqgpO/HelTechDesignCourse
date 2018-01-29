@@ -1,11 +1,19 @@
+# coding=utf-8
+from __future__ import unicode_literals
 import re
 
 class EventParser:
+    """
+    Parser class for fb events.
+    """
     def __init__(self, event, parse_speakers=False):
         self.event = event
         self.parse_speakers = parse_speakers
 
     def parse(self):
+        """
+        parse event data loaded in the class
+        """
         self.description = self.parseDescription(self.event['description']).strip()
         self.start_time = self.event['start_time'].strip()
         self.eid = self.event['id']
@@ -29,6 +37,11 @@ class EventParser:
             self.end_time = self.start_time
         
     def parseDescription(self, descr):
+        """
+        Parse description of event from its main components
+        :param descr: event description string
+        :return: the description of the event, without program
+        """
         try:
             ret = descr.split('PROGRAM:')[0]
         except KeyError:
@@ -52,6 +65,11 @@ class EventParser:
 
 
     def parseName(self, descr):
+        """
+        Event name parser
+        :param descr: event description string
+        :return: the name parsed
+        """
         name = descr.split('-')  ## todo: always in the same format?
         if len(name) != 2:
             return name[0].strip()
@@ -59,6 +77,11 @@ class EventParser:
             return name[1].strip()
         
     def parseProgram(self, descr):
+        """
+        Parse program from event string
+        :param descr: the description string
+        :return: the program that was parsed
+        """
         try:
             ret = descr.split('PROGRAM:')[1].strip() 
         except KeyError:
@@ -68,6 +91,11 @@ class EventParser:
 
 
     def parseSpeakers(self, program):
+        """
+        Parse speakers from program string
+        :param program: program to be parsed
+        :return: dict of the speakers
+        """
         speakers = []
         curr_role = ""
         lines = program.split('\n')

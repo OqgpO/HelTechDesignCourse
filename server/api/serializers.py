@@ -1,3 +1,4 @@
+# coding=utf-8
 from events.models import Event, Place
 from contacts.models import Speaker, Organisation
 from rest_framework import serializers

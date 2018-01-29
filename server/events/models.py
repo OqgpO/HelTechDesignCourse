@@ -10,15 +10,15 @@ class Place(models.Model):
 
 class Event(models.Model):
     title = models.CharField(max_length=1000)
-    start_time = models.DateTimeField('date organised')
-    end_time = models.DateTimeField('date organised')
+    start_time = models.DateTimeField('Start time')
+    end_time = models.DateTimeField('End time')
     eid = models.CharField(max_length=400)
     punchline = models.CharField(max_length=400, blank=True)
     description = models.TextField(max_length=2000)
     programme = models.TextField(max_length=2000, blank=True)
     attending_count = models.IntegerField(blank=True, null=True)
     cover_uri = models.URLField(max_length=1000, blank=True)
-    place = models.ForeignKey(Place, null=True, blank=True)
+    place = models.ForeignKey(Place, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __unicode__(self):
         return self.title

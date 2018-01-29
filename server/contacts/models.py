@@ -18,11 +18,11 @@ class Organisation(models.Model):
     
 class Speaker(models.Model):
     full_name = models.CharField(max_length=200, blank=True)
-    title = models.CharField(max_length=400, blank=True);
+    title = models.CharField(max_length=400, blank=True)
     introduction = models.TextField(max_length=2000, blank=True)
     portrait = models.ImageField(upload_to='speaker_portraits/', default=default_portrait)
-    organisation = models.ForeignKey(Organisation, null=True)
-    event = models.ForeignKey(Event, related_name='speakers', null=True, blank=True)
+    organisation = models.ForeignKey(Organisation, on_delete=models.SET_NULL, null=True, blank=True)
+    event = models.ForeignKey(Event, related_name='speakers', on_delete=models.SET_NULL, null=True, blank=True)
 
     ROLE_CHOICES = (
     ('KN', 'Keynote speaker'),
@@ -32,12 +32,17 @@ class Speaker(models.Model):
     role = models.CharField(max_length=2, blank=True, choices=ROLE_CHOICES)
 
     def get_organisation_name(self, obj):
+        """
+
+        :param obj:
+        :return:
+        """
         return obj.organisation.name or ""
     get_organisation_name.admin_order_field  = 'organisation'  #Allows column order sorting
     get_organisation_name.short_description = 'Organisation Name'  #Renames column head
 
     def __unicode__(self):
         if not self.full_name:
-            return self.organisation.name;
+            return self.organisation.name
         else:
             return self.full_name

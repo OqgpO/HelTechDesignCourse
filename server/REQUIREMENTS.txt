@@ -1,12 +1,14 @@
 django
 django-extensions
+django-common-helpers
 Pillow		#for imagefield
 djangorestframework # for REST API
-markdown       # Markdown support for the browsable API.
+markdown       # Markdown support for the browseable API.
 django-filter  # Filtering support
 psycopg2       # postgresql
 python-dateutil
 django_cron
 facebook-sdk
+pyopenssl
 urllib3[secure]
-
+future
