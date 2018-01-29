@@ -10,8 +10,8 @@ class Place(models.Model):
 
 class Event(models.Model):
     title = models.CharField(max_length=1000)
-    start_time = models.DateTimeField('Start time')
-    end_time = models.DateTimeField('End time')
+    start_time = models.DateTimeField(verbose_name='Start time')
+    end_time = models.DateTimeField(verbose_name='End time')
     eid = models.CharField(max_length=400)
     punchline = models.CharField(max_length=400, blank=True)
     description = models.TextField(max_length=2000)
