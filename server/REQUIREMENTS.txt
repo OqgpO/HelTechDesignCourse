@@ -5,6 +5,7 @@ djangorestframework # for REST API
 markdown       # Markdown support for the browsable API.
 django-filter  # Filtering support
 psycopg2       # postgresql
+pyopenssl
 python-dateutil
 django_cron
 facebook-sdk

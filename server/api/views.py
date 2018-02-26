@@ -57,6 +57,7 @@ def futureEvents(request, limit=None):
             events = Event.objects.filter(start_time__gte=timezone.now()).order_by('start_time')
         else:
             try:
+                limit = int(limit)
                 events = Event.objects.filter(start_time__gte=timezone.now()).order_by('start_time')[:limit]
             except IndexError:
                 events = Event.objects.filter(start_time__gte=timezone.now()).order_by('start_time')
