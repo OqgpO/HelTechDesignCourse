@@ -1,5 +1,7 @@
 django
 django-extensions
+dj-database-url
+gunicorn
 Pillow		#for imagefield
 djangorestframework # for REST API
 markdown       # Markdown support for the browsable API.
