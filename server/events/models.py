@@ -18,7 +18,7 @@ class Event(models.Model):
     programme = models.TextField(max_length=2000, blank=True)
     attending_count = models.IntegerField(blank=True, null=True)
     cover_uri = models.URLField(max_length=1000, blank=True)
-    place = models.ForeignKey(Place, null=True, blank=True)
+    place = models.ForeignKey(Place, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __unicode__(self):
         return self.title

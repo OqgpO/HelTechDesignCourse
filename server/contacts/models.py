@@ -25,8 +25,8 @@ class Speaker(models.Model):
     title = models.CharField(max_length=400, blank=True);
     introduction = models.TextField(max_length=2000, blank=True)
     portrait = models.ImageField(upload_to='speaker_portraits/', default=default_portrait)
-    organisation = models.ForeignKey(Organisation, null=True)
-    event = models.ForeignKey(Event, related_name='speakers', null=True, blank=True)
+    organisation = models.ForeignKey(Organisation, null=True, on_delete=models.SET_NULL)
+    event = models.ForeignKey(Event, related_name='speakers', null=True, blank=True, on_delete=models.SET_NULL)
 
     ROLE_CHOICES = (
     ('KN', 'Keynote speaker'),
