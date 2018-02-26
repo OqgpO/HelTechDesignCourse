@@ -28,7 +28,8 @@ SECRET_KEY = 'vucg606v(tqfxkh%)diriab*xs)n)adn3wf5hn!f$i!lapyq5m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shapemeal.cs.hut.fi', 'localhost', '127.0.0.1', '130.233.96.67']
+# TODO remove unneccesary hosts
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'still-caverns-23595.herokuapp.com']
 
 
 # Application definition

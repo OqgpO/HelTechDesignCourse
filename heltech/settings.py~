@@ -28,7 +28,7 @@ SECRET_KEY = 'vucg606v(tqfxkh%)diriab*xs)n)adn3wf5hn!f$i!lapyq5m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shapemeal.cs.hut.fi', 'localhost', '127.0.0.1', '130.233.96.67']
+ALLOWED_HOSTS = ['shapemeal.cs.hut.fi', 'localhost', '127.0.0.1', '130.233.96.67', 'still-caverns-23595.herokuapp.com']
 
 
 # Application definition
@@ -158,6 +158,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# Simplified stati file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = BASE_DIR + '/media_dev'
 MEDIA_URL = '/media/'
