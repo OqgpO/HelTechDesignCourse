@@ -90,6 +90,12 @@ ENV/
 env.bak/
 venv.bak/
 
+# static files
+staticfiles
+
+# Compiled python
+*.pyc
+
 # Spyder project settings
 .spyderproject
 .spyproject
