@@ -112,6 +112,8 @@ staticfiles
 # emacs temps
 .*~
 
+# heltech settings
+heltech/settings*
 
 # vue-cli ignores
 .DS_Store

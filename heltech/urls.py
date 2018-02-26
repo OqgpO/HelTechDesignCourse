@@ -25,5 +25,5 @@ urlpatterns = [
     url(r'^contacts/', include('contacts.urls')),
     url(r'^api/', include('api.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', TemplateView.as_view(template_name='main.html')),
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
