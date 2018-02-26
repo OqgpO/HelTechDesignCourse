@@ -10,6 +10,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 import logging
 
+import json
 import urllib3.contrib.pyopenssl
 import certifi, ssl
 import facebook
@@ -72,9 +73,14 @@ def elevate_page_token(request):
         # need valid certs for this
         resp = https.request('GET', "https://graph.facebook.com/oauth/access_token?"+params)        
         
-        respDict = ast.literal_eval(resp.data)
+        #respDict = ast.literal_eval(resp.data)
+        respDict = json.loads(resp.data.decode('utf-8'))
         ew.user_ll_token = respDict['access_token']
-        ew.ll_expires = str(respDict['expires_in'])
+        try:
+            ew.ll_expires = str(respDict['expires_in'])
+        except KeyError:
+            pass
+        
         ew.save()
 
         return redirect('select_page', ew.name)
@@ -92,7 +98,8 @@ def select_page(request, wname):
             ew.page_id = page_id
             https = urllib3.PoolManager(cert_reqs=str('CERT_REQUIRED'), ca_certs=certifi.where())
             resp = https.request('GET', "https://graph.facebook.com/me/accounts?access_token="+ew.user_ll_token)
-            thedict = ast.literal_eval(resp.data)
+            #thedict = ast.literal_eval(resp.data)
+            thedict = json.loads(resp.data.decode('utf-8'))
             for page in thedict['data']:
                 if page['id'] == page_id:
                     ew.page_name = page['name']
@@ -111,7 +118,8 @@ def select_page(request, wname):
             resp = https.request('GET', "https://graph.facebook.com/me/accounts?access_token="+ew.user_ll_token)
 
 
-            thedict = ast.literal_eval(resp.data)
+            #thedict = ast.literal_eval(resp.data)
+            thedict = json.loads(resp.data.decode('utf-8'))
         
             return render(request, "select_page.html", context={'data':thedict['data'],'name':ew.name})
         

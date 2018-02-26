@@ -15,6 +15,10 @@ class Organisation(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def __str__(self):
+        return self.name
+
     
 class Speaker(models.Model):
     full_name = models.CharField(max_length=200, blank=True)
@@ -37,6 +41,12 @@ class Speaker(models.Model):
     get_organisation_name.short_description = 'Organisation Name'  #Renames column head
 
     def __unicode__(self):
+        if not self.full_name:
+            return self.organisation.name;
+        else:
+            return self.full_name
+
+    def __str__(self):
         if not self.full_name:
             return self.organisation.name;
         else:
