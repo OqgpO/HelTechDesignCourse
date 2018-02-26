@@ -1,15 +1,27 @@
-django
-django-extensions
-dj-database-url
-gunicorn
-Pillow		#for imagefield
-djangorestframework # for REST API
-markdown       # Markdown support for the browsable API.
-django-filter  # Filtering support
-psycopg2       # postgresql
-pyopenssl
-python-dateutil
-django_cron
-facebook-sdk
-urllib3[secure]
-
+asn1crypto==0.24.0
+certifi==2018.1.18
+cffi==1.11.4
+chardet==3.0.4
+cryptography==2.1.4
+dj-database-url==0.4.2
+Django==2.0.2
+django-common-helpers==0.9.1
+django-cron==0.5.0
+django-extensions==2.0.0
+django-filter==1.1.0
+djangorestframework==3.7.7
+facebook-sdk==2.0.0
+gunicorn==19.7.1
+idna==2.6
+Markdown==2.6.11
+Pillow==5.0.0
+psycopg2==2.7.4
+pycparser==2.18
+pyOpenSSL==17.5.0
+python-dateutil==2.6.1
+pytz==2018.3
+requests==2.18.4
+six==1.11.0
+typing==3.6.4
+urllib3==1.22
+whitenoise==3.3.1
